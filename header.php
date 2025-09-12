@@ -348,10 +348,10 @@ foreach ($result as $row) {
                 <form class="" role="search" action="#" method="post" id="langForm" name="langForm">
                     <?php $csrf->echoInputField(); ?>
                     <div class="form-group">
-                        <select class="form-control search-top" name="lang_short_name" style="width: 100%; font-size: 16px; padding: 8px;" onchange="document.getElementById('langForm').submit();">
-                            <option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
-                            <option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
-                        </select>
+                        <select class="form-control search-top" name="lang_short_name" style="min-width:100px; width:auto; font-size:16px; padding:3px; margin-top:10px" onchange="document.getElementById('langForm').submit();">
+   							<option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
+    						<option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
+						</select>
                     </div>
                 </form>
             </div>
