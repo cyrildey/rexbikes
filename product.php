@@ -27,11 +27,16 @@ foreach($result as $row) {
     $p_feature = $row['p_feature'];
     $p_condition = $row['p_condition'];
     $p_return_policy = $row['p_return_policy'];
+    $p_supplier_phone = isset($row['p_supplier_phone']) ? $row['p_supplier_phone'] : '';
+    $p_supplier_whatsapp = isset($row['p_supplier_whatsapp']) ? $row['p_supplier_whatsapp'] : '';
     $p_total_view = $row['p_total_view'];
     $p_is_featured = $row['p_is_featured'];
     $p_is_active = $row['p_is_active'];
     $ecat_id = $row['ecat_id'];
 }
+
+$wa_number = preg_replace('/[^0-9]/','', $p_supplier_whatsapp);
+$tel_number = preg_replace('/[^0-9]/','', $p_supplier_phone);
 
 // Getting all categories name for breadcrumb
 $statement = $pdo->prepare("SELECT
@@ -472,9 +477,39 @@ if($success_message1 != '') {
 								<input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
 							</div>
 							<div class="btn-cart btn-cart1">
-                                <input type="submit" value="<?php echo LANG_VALUE_154; ?>" name="form_add_to_cart">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactSupplierModal">Contact Supplier</button>
 							</div>
                             </form>
+
+                            <div class="modal fade" id="contactSupplierModal" tabindex="-1" role="dialog" aria-labelledby="contactSupplierLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="contactSupplierLabel">Contact Supplier</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>Contact the supplier for &quot;<?php echo htmlspecialchars($p_name); ?>&quot;</p>
+                                    <div class="btn-group">
+                                      <?php if(!empty($wa_number)): ?>
+                                      <a target="_blank" class="btn btn-success" href="https://wa.me/<?php echo $wa_number; ?>?text=<?php echo urlencode('Hello, I\'m interested in '.$p_name.' ('.BASE_URL.'product.php?id='.$_REQUEST['id'].')'); ?>">
+                                        <i class="fa fa-whatsapp"></i> WhatsApp
+                                      </a>
+                                      <?php endif; ?>
+                                      <?php if(!empty($tel_number)): ?>
+                                      <a class="btn btn-default" href="tel:<?php echo $tel_number; ?>">
+                                        <i class="fa fa-phone"></i> Call
+                                      </a>
+                                      <?php endif; ?>
+                                    </div>
+                                    <?php if(empty($wa_number) && empty($tel_number)): ?>
+                                      <p class="text-danger">Supplier contact details are not available.</p>
+                                    <?php endif; ?>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
 							<div class="share">
                                 <?php echo LANG_VALUE_58; ?> <br>
 								<div class="sharethis-inline-share-buttons"></div>
@@ -757,7 +792,7 @@ if($success_message1 != '') {
                                     }
                                     ?>
                                 </div>
-                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo LANG_VALUE_154; ?></a></p>
+                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>">Contact Supplier</a></p>
                             </div>
                         </div>
                         <?php

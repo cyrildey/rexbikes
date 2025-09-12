@@ -90,36 +90,40 @@ if(isset($_POST['form1'])) {
         }
 
         if($path == '') {
-        	$statement = $pdo->prepare("UPDATE tbl_product SET 
-        							p_name=?, 
-        							p_old_price=?, 
-        							p_current_price=?, 
-        							p_qty=?,
-        							p_description=?,
-        							p_short_description=?,
-        							p_feature=?,
-        							p_condition=?,
-        							p_return_policy=?,
-        							p_is_featured=?,
-        							p_is_active=?,
-        							ecat_id=?
+            $statement = $pdo->prepare("UPDATE tbl_product SET 
+                                    p_name=?, 
+                                    p_old_price=?, 
+                                    p_current_price=?, 
+                                    p_qty=?,
+                                    p_description=?,
+                                    p_short_description=?,
+                                    p_feature=?,
+                                    p_condition=?,
+                                    p_return_policy=?,
+                                    p_supplier_phone=?,
+                                    p_supplier_whatsapp=?,
+                                    p_is_featured=?,
+                                    p_is_active=?,
+                                    ecat_id=?
 
-        							WHERE p_id=?");
-        	$statement->execute(array(
-        							$_POST['p_name'],
-        							$_POST['p_old_price'],
-        							$_POST['p_current_price'],
-        							$_POST['p_qty'],
-        							$_POST['p_description'],
-        							$_POST['p_short_description'],
-        							$_POST['p_feature'],
-        							$_POST['p_condition'],
-        							$_POST['p_return_policy'],
-        							$_POST['p_is_featured'],
-        							$_POST['p_is_active'],
-        							$_POST['ecat_id'],
-        							$_REQUEST['id']
-        						));
+                                    WHERE p_id=?");
+            $statement->execute(array(
+                                    $_POST['p_name'],
+                                    $_POST['p_old_price'],
+                                    $_POST['p_current_price'],
+                                    $_POST['p_qty'],
+                                    $_POST['p_description'],
+                                    $_POST['p_short_description'],
+                                    $_POST['p_feature'],
+                                    $_POST['p_condition'],
+                                    $_POST['p_return_policy'],
+                                    $_POST['p_supplier_phone'],
+                                    $_POST['p_supplier_whatsapp'],
+                                    $_POST['p_is_featured'],
+                                    $_POST['p_is_active'],
+                                    $_POST['ecat_id'],
+                                    $_REQUEST['id']
+                                    ));
         } else {
 
         	unlink('../assets/uploads/'.$_POST['current_photo']);
@@ -128,38 +132,42 @@ if(isset($_POST['form1'])) {
         	move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
 
 
-        	$statement = $pdo->prepare("UPDATE tbl_product SET 
-        							p_name=?, 
-        							p_old_price=?, 
-        							p_current_price=?, 
-        							p_qty=?,
-        							p_featured_photo=?,
-        							p_description=?,
-        							p_short_description=?,
-        							p_feature=?,
-        							p_condition=?,
-        							p_return_policy=?,
-        							p_is_featured=?,
-        							p_is_active=?,
-        							ecat_id=?
+            $statement = $pdo->prepare("UPDATE tbl_product SET 
+                                    p_name=?, 
+                                    p_old_price=?, 
+                                    p_current_price=?, 
+                                    p_qty=?,
+                                    p_featured_photo=?,
+                                    p_description=?,
+                                    p_short_description=?,
+                                    p_feature=?,
+                                    p_condition=?,
+                                    p_return_policy=?,
+                                    p_supplier_phone=?,
+                                    p_supplier_whatsapp=?,
+                                    p_is_featured=?,
+                                    p_is_active=?,
+                                    ecat_id=?
 
-        							WHERE p_id=?");
-        	$statement->execute(array(
-        							$_POST['p_name'],
-        							$_POST['p_old_price'],
-        							$_POST['p_current_price'],
-        							$_POST['p_qty'],
-        							$final_name,
-        							$_POST['p_description'],
-        							$_POST['p_short_description'],
-        							$_POST['p_feature'],
-        							$_POST['p_condition'],
-        							$_POST['p_return_policy'],
-        							$_POST['p_is_featured'],
-        							$_POST['p_is_active'],
-        							$_POST['ecat_id'],
-        							$_REQUEST['id']
-        						));
+                                    WHERE p_id=?");
+            $statement->execute(array(
+                                    $_POST['p_name'],
+                                    $_POST['p_old_price'],
+                                    $_POST['p_current_price'],
+                                    $_POST['p_qty'],
+                                    $final_name,
+                                    $_POST['p_description'],
+                                    $_POST['p_short_description'],
+                                    $_POST['p_feature'],
+                                    $_POST['p_condition'],
+                                    $_POST['p_return_policy'],
+                                    $_POST['p_supplier_phone'],
+                                    $_POST['p_supplier_whatsapp'],
+                                    $_POST['p_is_featured'],
+                                    $_POST['p_is_active'],
+                                    $_POST['ecat_id'],
+                                    $_REQUEST['id']
+                                    ));
         }
 		
 
@@ -237,6 +245,8 @@ foreach ($result as $row) {
 	$p_feature = $row['p_feature'];
 	$p_condition = $row['p_condition'];
 	$p_return_policy = $row['p_return_policy'];
+    $p_supplier_phone = isset($row['p_supplier_phone']) ? $row['p_supplier_phone'] : '';
+    $p_supplier_whatsapp = isset($row['p_supplier_whatsapp']) ? $row['p_supplier_whatsapp'] : '';
 	$p_is_featured = $row['p_is_featured'];
 	$p_is_active = $row['p_is_active'];
 	$ecat_id = $row['ecat_id'];
@@ -495,9 +505,22 @@ foreach ($result as $row) {
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label">Return Policy</label>
 							<div class="col-sm-8">
-								<textarea name="p_return_policy" class="form-control" cols="30" rows="10" id="editor5"><?php echo $p_return_policy; ?></textarea>
+								<textarea name="p_return_policy" class="form-control" cols="30" rows="10" id="editor5"><?php echo htmlspecialchars($p_return_policy); ?></textarea>
 							</div>
 						</div>
+
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Supplier Phone</label>
+                            <div class="col-sm-4">
+                                <input type="text" name="p_supplier_phone" class="form-control" value="<?php echo htmlspecialchars($p_supplier_phone); ?>" placeholder="e.g. +237690000000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Supplier WhatsApp</label>
+                            <div class="col-sm-4">
+                                <input type="text" name="p_supplier_whatsapp" class="form-control" value="<?php echo htmlspecialchars($p_supplier_whatsapp); ?>" placeholder="e.g. 237690000000">
+                            </div>
+                        </div>
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label">Is Featured?</label>
 							<div class="col-sm-8">
