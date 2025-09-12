@@ -1,0 +1,51 @@
+**Log on to scriptandtools.com for more projects!***
+
+**Database Name: ecommerceweb**
+
+**Developed by Webpenter.com/Abdul khaliq**
+
+**Recommended PHP Version 5.6, 7.4**
+
+
+
+**Customer Verification should be done by accessing the database and changing its active status**
+
+**Admin Login Details**
+
+Email   : admin@mail.com
+Password: Password@123
+
+
+-- Add DROP TABLE IF EXISTS for all tables before CREATE TABLE statements
+
+DROP TABLE IF EXISTS `tbl_color`;
+DROP TABLE IF EXISTS `tbl_country`;
+DROP TABLE IF EXISTS `tbl_customer`;
+DROP TABLE IF EXISTS `tbl_customer_message`;
+DROP TABLE IF EXISTS `tbl_end_category`;
+DROP TABLE IF EXISTS `tbl_faq`;
+DROP TABLE IF EXISTS `tbl_language`;
+DROP TABLE IF EXISTS `tbl_mid_category`;
+DROP TABLE IF EXISTS `tbl_order`;
+DROP TABLE IF EXISTS `tbl_page`;
+DROP TABLE IF EXISTS `tbl_payment`;
+DROP TABLE IF EXISTS `tbl_photo`;
+DROP TABLE IF EXISTS `tbl_post`;
+DROP TABLE IF EXISTS `tbl_product`;
+DROP TABLE IF EXISTS `tbl_product_color`;
+DROP TABLE IF EXISTS `tbl_product_photo`;
+DROP TABLE IF EXISTS `tbl_product_size`;
+DROP TABLE IF EXISTS `tbl_rating`;
+DROP TABLE IF EXISTS `tbl_service`;
+DROP TABLE IF EXISTS `tbl_settings`;
+DROP TABLE IF EXISTS `tbl_shipping_cost`;
+DROP TABLE IF EXISTS `tbl_shipping_cost_all`;
+DROP TABLE IF EXISTS `tbl_size`;
+DROP TABLE IF EXISTS `tbl_slider`;
+DROP TABLE IF EXISTS `tbl_social`;
+DROP TABLE IF EXISTS `tbl_subscriber`;
+DROP TABLE IF EXISTS `tbl_top_category`;
+DROP TABLE IF EXISTS `tbl_user`;
+DROP TABLE IF EXISTS `tbl_video`;
+
+-- ...existing code...
