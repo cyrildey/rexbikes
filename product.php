@@ -495,10 +495,16 @@ if($success_message1 != '') {
                                       <a target="_blank" class="btn btn-success" href="https://wa.me/<?php echo $wa_number; ?>?text=<?php echo urlencode('Hello, I\'m interested in '.$p_name.' ('.BASE_URL.'product.php?id='.$_REQUEST['id'].')'); ?>">
                                         <i class="fa fa-whatsapp"></i> WhatsApp
                                       </a>
+                                      <a target="_blank" class="btn btn-success" href="javascript:void(0);" onclick="copyToClipboard('<?php echo $wa_number; ?>')">
+                                        <i class="fa fa-whatsapp"></i> Copy WhatsApp Number 
+                                      </a>
                                       <?php endif; ?>
                                       <?php if(!empty($tel_number)): ?>
                                       <a class="btn btn-default" href="tel:<?php echo $tel_number; ?>">
                                         <i class="fa fa-phone"></i> Call
+                                      </a>
+                                      <a class="btn btn-default" href="javascript:void(0);" onclick="copyToClipboard('<?php echo $tel_number; ?>')">
+                                        <i class="fa fa-phone"></i> Copy Calls Number
                                       </a>
                                       <?php endif; ?>
                                     </div>
@@ -805,5 +811,28 @@ if($success_message1 != '') {
         </div>
     </div>
 </div>
-
+<script>
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      alert('Phone number copied!');
+    }, function() {
+      alert('Failed to copy phone number.');
+    });
+  } else {
+    // Fallback for older browsers
+    var tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand('copy');
+      alert('Phone number copied!');
+    } catch (err) {
+      alert('Failed to copy phone number.');
+    }
+    document.body.removeChild(tempInput);
+  }
+}
+</script>
 <?php require_once('footer.php'); ?>
