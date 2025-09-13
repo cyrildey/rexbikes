@@ -9,13 +9,13 @@ date_default_timezone_set('America/Los_Angeles');
 $dbhost = 'localhost';
 
 // Database Name
-$dbname = 'digimarkwebsite';
+$dbname = 'ecommerceweb';
 
 // Database Username
-$dbuser = 'digimarkwebsite';
+$dbuser = 'root';
 
 // Database Password
-$dbpass = 'pwd$4$digimarkwebsite';
+$dbpass = '';
 
 // Defining base url
 define("BASE_URL", "");
