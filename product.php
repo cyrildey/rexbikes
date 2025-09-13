@@ -495,7 +495,7 @@ if($success_message1 != '') {
                                       <a target="_blank" class="btn btn-success" href="https://wa.me/<?php echo $wa_number; ?>?text=<?php echo urlencode('Hello, I\'m interested in '.$p_name.' ('.BASE_URL.'product.php?id='.$_REQUEST['id'].')'); ?>">
                                         <i class="fa fa-whatsapp"></i> WhatsApp
                                       </a>
-                                      <a target="_blank" class="btn btn-success" href="javascript:void(0);" onclick="copyToClipboard('<?php echo $wa_number; ?>')">
+                                      <a class="btn btn-success" href="javascript:void(0);" onclick="copyToClipboard('<?php echo $wa_number; ?>')">
                                         <i class="fa fa-whatsapp"></i> Copy WhatsApp Number 
                                       </a>
                                       <?php endif; ?>
