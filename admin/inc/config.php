@@ -9,13 +9,13 @@ date_default_timezone_set('America/Los_Angeles');
 $dbhost = 'localhost';
 
 // Database Name
-$dbname = 'alexdy';
+$dbname = 'alexdywebsite';
 
 // Database Username
-$dbuser = 'alexdy';
+$dbuser = 'alexdywebsite';
 
 // Database Password
-$dbpass = 'pwd$4$alexdy';
+$dbpass = 'pwd$4$alexdywebsite';
 
 // Defining base url
 define("BASE_URL", "");
