@@ -1,6 +1,6 @@
 <?php require_once('header.php'); ?>
-
 <?php
+echo('1');
 if(isset($_POST['form1'])) {
 	$valid = 1;
 
@@ -33,6 +33,7 @@ if(isset($_POST['form1'])) {
         $valid = 0;
         $error_message .= "Quantity can not be empty<br>";
     }
+echo('2');
 
     $path = $_FILES['p_featured_photo']['name'];
     $path_tmp = $_FILES['p_featured_photo']['tmp_name'];
@@ -40,6 +41,8 @@ if(isset($_POST['form1'])) {
     if($path!='') {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
+echo('3');
+
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
             $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
@@ -51,6 +54,7 @@ if(isset($_POST['form1'])) {
 
 
     if($valid == 1) {
+echo('valid');
 
     	$statement = $pdo->prepare("SHOW TABLE STATUS LIKE 'tbl_product'");
 		$statement->execute();
@@ -100,6 +104,7 @@ if(isset($_POST['form1'])) {
 
 		$final_name = 'product-featured-'.$ai_id.'.'.$ext;
         move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
+echo('4');
 
 		//Saving data into the main table tbl_product
         $statement = $pdo->prepare("INSERT INTO tbl_product(
@@ -158,6 +163,7 @@ if(isset($_POST['form1'])) {
     	$success_message = 'Product is added successfully.';
     }
 }
+
 ?>
 
 <section class="content-header">
