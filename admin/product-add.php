@@ -105,8 +105,11 @@ echo('valid');
 		$final_name = 'product-featured-'.$ai_id.'.'.$ext;
         move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
 echo('4');
-
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      
 		//Saving data into the main table tbl_product
+      print_r($_POST);
+      try {
         $statement = $pdo->prepare("INSERT INTO tbl_product(
                                         p_name,
                                         p_old_price,
@@ -143,6 +146,12 @@ echo('4');
                                         $_POST['p_is_active'],
                                         $_POST['ecat_id']
                                 ));
+        } catch (PDOException $e) {
+    $error_message .= 'Database error: ' . $e->getMessage() . '<br>';
+    // Optional: log error or handle as needed
+    error_log('PDO Error: ' . $e->getMessage());
+}
+      echo('success');
 
 		
 
@@ -161,6 +170,7 @@ echo('4');
 		}
 	
     	$success_message = 'Product is added successfully.';
+      
     }
 }
 
