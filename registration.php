@@ -274,6 +274,10 @@ if (isset($_POST['form1'])) {
                                     <label for=""></label>
                                     <input type="submit" class="btn btn-danger" value="<?php echo LANG_VALUE_15; ?>" name="form1">
                                 </div>
+                                <div class="col-md-6 form-group">
+                                    <label for=""></label>
+                                    <a href="seller-register.php" class="btn btn-link">Register as a Seller instead</a>
+                                </div>
                             </div>
                         </div>
                     </form>

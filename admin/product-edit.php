@@ -90,7 +90,8 @@ if(isset($_POST['form1'])) {
         }
 
         if($path == '') {
-            $statement = $pdo->prepare("UPDATE tbl_product SET 
+            if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') {
+                $statement = $pdo->prepare("UPDATE tbl_product SET 
                                     p_name=?, 
                                     p_old_price=?, 
                                     p_current_price=?, 
@@ -105,9 +106,43 @@ if(isset($_POST['form1'])) {
                                     p_is_featured=?,
                                     p_is_active=?,
                                     ecat_id=?
-
+                                    WHERE p_id=? AND seller_id=?");
+                $params = array(
+                                    $_POST['p_name'],
+                                    $_POST['p_old_price'],
+                                    $_POST['p_current_price'],
+                                    $_POST['p_qty'],
+                                    $_POST['p_description'],
+                                    $_POST['p_short_description'],
+                                    $_POST['p_feature'],
+                                    $_POST['p_condition'],
+                                    $_POST['p_return_policy'],
+                                    $_POST['p_supplier_phone'],
+                                    $_POST['p_supplier_whatsapp'],
+                                    $_POST['p_is_featured'],
+                                    $_POST['p_is_active'],
+                                    $_POST['ecat_id'],
+                                    $_REQUEST['id'],
+                                    $_SESSION['user']['id']
+                                );
+            } else {
+                $statement = $pdo->prepare("UPDATE tbl_product SET 
+                                    p_name=?, 
+                                    p_old_price=?, 
+                                    p_current_price=?, 
+                                    p_qty=?,
+                                    p_description=?,
+                                    p_short_description=?,
+                                    p_feature=?,
+                                    p_condition=?,
+                                    p_return_policy=?,
+                                    p_supplier_phone=?,
+                                    p_supplier_whatsapp=?,
+                                    p_is_featured=?,
+                                    p_is_active=?,
+                                    ecat_id=?
                                     WHERE p_id=?");
-            $statement->execute(array(
+                $params = array(
                                     $_POST['p_name'],
                                     $_POST['p_old_price'],
                                     $_POST['p_current_price'],
@@ -123,7 +158,9 @@ if(isset($_POST['form1'])) {
                                     $_POST['p_is_active'],
                                     $_POST['ecat_id'],
                                     $_REQUEST['id']
-                                    ));
+                                );
+            }
+            $statement->execute($params);
         } else {
 
         	unlink('../assets/uploads/'.$_POST['current_photo']);
@@ -132,7 +169,8 @@ if(isset($_POST['form1'])) {
         	move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
 
 
-            $statement = $pdo->prepare("UPDATE tbl_product SET 
+            if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') {
+                $statement = $pdo->prepare("UPDATE tbl_product SET 
                                     p_name=?, 
                                     p_old_price=?, 
                                     p_current_price=?, 
@@ -148,9 +186,45 @@ if(isset($_POST['form1'])) {
                                     p_is_featured=?,
                                     p_is_active=?,
                                     ecat_id=?
-
+                                    WHERE p_id=? AND seller_id=?");
+                $params2 = array(
+                                    $_POST['p_name'],
+                                    $_POST['p_old_price'],
+                                    $_POST['p_current_price'],
+                                    $_POST['p_qty'],
+                                    $final_name,
+                                    $_POST['p_description'],
+                                    $_POST['p_short_description'],
+                                    $_POST['p_feature'],
+                                    $_POST['p_condition'],
+                                    $_POST['p_return_policy'],
+                                    $_POST['p_supplier_phone'],
+                                    $_POST['p_supplier_whatsapp'],
+                                    $_POST['p_is_featured'],
+                                    $_POST['p_is_active'],
+                                    $_POST['ecat_id'],
+                                    $_REQUEST['id'],
+                                    $_SESSION['user']['id']
+                                );
+            } else {
+                $statement = $pdo->prepare("UPDATE tbl_product SET 
+                                    p_name=?, 
+                                    p_old_price=?, 
+                                    p_current_price=?, 
+                                    p_qty=?,
+                                    p_featured_photo=?,
+                                    p_description=?,
+                                    p_short_description=?,
+                                    p_feature=?,
+                                    p_condition=?,
+                                    p_return_policy=?,
+                                    p_supplier_phone=?,
+                                    p_supplier_whatsapp=?,
+                                    p_is_featured=?,
+                                    p_is_active=?,
+                                    ecat_id=?
                                     WHERE p_id=?");
-            $statement->execute(array(
+                $params2 = array(
                                     $_POST['p_name'],
                                     $_POST['p_old_price'],
                                     $_POST['p_current_price'],
@@ -167,7 +241,9 @@ if(isset($_POST['form1'])) {
                                     $_POST['p_is_active'],
                                     $_POST['ecat_id'],
                                     $_REQUEST['id']
-                                    ));
+                                );
+            }
+            $statement->execute($params2);
         }
 		
 
@@ -209,9 +285,14 @@ if(!isset($_REQUEST['id'])) {
 	header('location: logout.php');
 	exit;
 } else {
-	// Check the id is valid or not
-	$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
-	$statement->execute(array($_REQUEST['id']));
+// Check the id is valid or not
+    if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') {
+        $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=? AND seller_id=?");
+        $statement->execute(array($_REQUEST['id'], $_SESSION['user']['id']));
+    } else {
+        $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+        $statement->execute(array($_REQUEST['id']));
+    }
 	$total = $statement->rowCount();
 	$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 	if( $total == 0 ) {
@@ -231,8 +312,13 @@ if(!isset($_REQUEST['id'])) {
 </section>
 
 <?php
-$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
+if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') {
+    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=? AND seller_id=?");
+    $statement->execute(array($_REQUEST['id'], $_SESSION['user']['id']));
+} else {
+    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+    $statement->execute(array($_REQUEST['id']));
+}
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
 	$p_name = $row['p_name'];

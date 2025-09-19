@@ -104,12 +104,18 @@ echo('valid');
 
 		$final_name = 'product-featured-'.$ai_id.'.'.$ext;
         move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
+<<<<<<< HEAD
 echo('4');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       
 		//Saving data into the main table tbl_product
       print_r($_POST);
       try {
+=======
+
+//Saving data into the main table tbl_product
+        $seller_id_val = (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') ? $_SESSION['user']['id'] : NULL;
+>>>>>>> 71492e2 (Implement role-based access for Sellers and update product management functionalities)
         $statement = $pdo->prepare("INSERT INTO tbl_product(
                                         p_name,
                                         p_old_price,
@@ -126,8 +132,9 @@ echo('4');
                                         p_total_view,
                                         p_is_featured,
                                         p_is_active,
-                                        ecat_id
-                                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                                        ecat_id,
+                                        seller_id
+                                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $statement->execute(array(
                                         $_POST['p_name'],
                                         $_POST['p_old_price'],
@@ -144,7 +151,8 @@ echo('4');
                                         0,
                                         $_POST['p_is_featured'],
                                         $_POST['p_is_active'],
-                                        $_POST['ecat_id']
+                                        $_POST['ecat_id'],
+                                        $seller_id_val
                                 ));
         } catch (PDOException $e) {
     $error_message .= 'Database error: ' . $e->getMessage() . '<br>';

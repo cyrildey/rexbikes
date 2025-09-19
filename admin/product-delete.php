@@ -5,9 +5,14 @@ if(!isset($_REQUEST['id'])) {
 	header('location: logout.php');
 	exit;
 } else {
-	// Check the id is valid or not
-	$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
-	$statement->execute(array($_REQUEST['id']));
+// Check the id is valid or not (and ownership for Seller)
+    if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') {
+        $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=? AND seller_id=?");
+        $statement->execute(array($_REQUEST['id'], $_SESSION['user']['id']));
+    } else {
+        $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+        $statement->execute(array($_REQUEST['id']));
+    }
 	$total = $statement->rowCount();
 	if( $total == 0 ) {
 		header('location: logout.php');

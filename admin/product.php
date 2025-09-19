@@ -32,8 +32,13 @@
 						<tbody>
 							<?php
 							$i=0;
-							$statement = $pdo->prepare("SELECT
-														
+							$where = '';
+							$params = array();
+							if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') {
+							    $where = ' WHERE t1.seller_id = ? ';
+							    $params[] = $_SESSION['user']['id'];
+							}
+							$sql = "SELECT
 														t1.p_id,
 														t1.p_name,
 														t1.p_old_price,
@@ -43,26 +48,20 @@
 														t1.p_is_featured,
 														t1.p_is_active,
 														t1.ecat_id,
-
 														t2.ecat_id,
 														t2.ecat_name,
-
 														t3.mcat_id,
 														t3.mcat_name,
-
 														t4.tcat_id,
 														t4.tcat_name
-
-							                           	FROM tbl_product t1
-							                           	JOIN tbl_end_category t2
-							                           	ON t1.ecat_id = t2.ecat_id
-							                           	JOIN tbl_mid_category t3
-							                           	ON t2.mcat_id = t3.mcat_id
-							                           	JOIN tbl_top_category t4
-							                           	ON t3.tcat_id = t4.tcat_id
-							                           	ORDER BY t1.p_id DESC
-							                           	");
-							$statement->execute();
+											   	FROM tbl_product t1
+											   	JOIN tbl_end_category t2 ON t1.ecat_id = t2.ecat_id
+											   	JOIN tbl_mid_category t3 ON t2.mcat_id = t3.mcat_id
+											   	JOIN tbl_top_category t4 ON t3.tcat_id = t4.tcat_id".
+											   	$where.
+											   	" ORDER BY t1.p_id DESC";
+							$statement = $pdo->prepare($sql);
+							$statement->execute($params);
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 							foreach ($result as $row) {
 								$i++;
