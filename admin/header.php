@@ -29,7 +29,7 @@ $allowed_pages_for_seller = array('product.php','product-add.php','product-edit.
 
 <!DOCTYPE html>
 <html>
-<head
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Admin Panel</title>
