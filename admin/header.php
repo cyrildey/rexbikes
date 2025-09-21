@@ -19,7 +19,7 @@ if(!isset($_SESSION['user'])) {
 // Role-based page access for Sellers
 $cur_page = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
 if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') {
-    $allowed_pages_for_seller = array('product.php','product-add.php','product-edit.php','logout.php','profile-edit.php');
+$allowed_pages_for_seller = array('product.php','product-add.php','product-edit.php','product-delete.php','logout.php','profile-edit.php');
     if (!in_array($cur_page, $allowed_pages_for_seller)) {
         header('location: product.php');
         exit;

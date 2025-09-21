@@ -1,6 +1,5 @@
 <?php require_once('header.php'); ?>
 <?php
-echo('1');
 if(isset($_POST['form1'])) {
 	$valid = 1;
 
@@ -33,7 +32,6 @@ if(isset($_POST['form1'])) {
         $valid = 0;
         $error_message .= "Quantity can not be empty<br>";
     }
-echo('2');
 
     $path = $_FILES['p_featured_photo']['name'];
     $path_tmp = $_FILES['p_featured_photo']['tmp_name'];
@@ -41,7 +39,6 @@ echo('2');
     if($path!='') {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
-echo('3');
 
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
@@ -54,7 +51,6 @@ echo('3');
 
 
     if($valid == 1) {
-echo('valid');
 
     	$statement = $pdo->prepare("SHOW TABLE STATUS LIKE 'tbl_product'");
 		$statement->execute();
@@ -104,18 +100,9 @@ echo('valid');
 
 		$final_name = 'product-featured-'.$ai_id.'.'.$ext;
         move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
-<<<<<<< HEAD
-echo('4');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      
-		//Saving data into the main table tbl_product
-      print_r($_POST);
-      try {
-=======
 
 //Saving data into the main table tbl_product
         $seller_id_val = (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'Seller') ? $_SESSION['user']['id'] : NULL;
->>>>>>> 71492e2 (Implement role-based access for Sellers and update product management functionalities)
         $statement = $pdo->prepare("INSERT INTO tbl_product(
                                         p_name,
                                         p_old_price,
@@ -135,7 +122,8 @@ echo('4');
                                         ecat_id,
                                         seller_id
                                 ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        $statement->execute(array(
+        try {
+            $statement->execute(array(
                                         $_POST['p_name'],
                                         $_POST['p_old_price'],
                                         $_POST['p_current_price'],
@@ -154,14 +142,10 @@ echo('4');
                                         $_POST['ecat_id'],
                                         $seller_id_val
                                 ));
-        } catch (PDOException $e) {
-    $error_message .= 'Database error: ' . $e->getMessage() . '<br>';
-    // Optional: log error or handle as needed
-    error_log('PDO Error: ' . $e->getMessage());
-}
-      echo('success');
-
-		
+        } catch (Exception $ex) {
+            $valid = 0;
+            $error_message .= 'Add product failed: '.htmlspecialchars($ex->getMessage()).'<br>';
+        }
 
         if(isset($_POST['size'])) {
 			foreach($_POST['size'] as $value) {
@@ -176,9 +160,9 @@ echo('4');
 				$statement->execute(array($value,$ai_id));
 			}
 		}
-	
+
     	$success_message = 'Product is added successfully.';
-      
+
     }
 }
 
