@@ -94,7 +94,7 @@ foreach ($result as $row) {
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="assets/uploads/<?php echo $favicon; ?>">
+	<!-- <link rel="icon" type="image/png" href="assets/uploads/<?php echo $favicon; ?>"> -->
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -254,115 +254,64 @@ foreach ($result as $row) {
 
 <!-- top bar -->
 
+<div class="header2">
+<header>
+	<div class="first" style="display:flex; width:100%; justify-content: space-between;">
+		<div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0; padding-right:30px;">
+			<i>Alexdy</i></a>
+		</div>
+		<div class="nav-icons" >
+			<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
+				<?php $csrf->echoInputField(); ?>
+				<div class="form-group" >
+					<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="margin-top:13px;">
+				</div>
+				<button type="submit" class="btn btn-success bg-kelshair2">Search</button>
+			</form>
+		</div>
+	</div>
+</header>
 
-<header class="header1">
-  <div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0;"><i>Alexdy</i></a></div>
-	<nav>
+	<div class="second" style="display:flex; width:80%; align-items: center;justify-content:center; margin-left:50px; margin-right:50px;">
+		<div class=" search-area" style="margin-right:50px;">
+			<form class="" role="search" action="#" method="post" id="langForm" name="langForm">
+				<?php $csrf->echoInputField(); ?>
+				<div class="form-group">
+					<select class="form-control search-top" name="lang_short_name" style="min-width:100px; width:auto; font-size:16px; padding:3px; margin-top:10px" onchange="document.getElementById('langForm').submit();">
+						<option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
+						<option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
+					</select>
+				</div>
+			</form>
+		</div>
+		<div class="d-flex align-items-center gap-3 flex-wrap">
+				<?php
+				// Count cart items
+				$cart_count = 0;
+				if(isset($_SESSION['cart_p_id'])) {
+					$cart_count = count($_SESSION['cart_p_id']);
+				}
+				// ?>
+				<?php
+					if(isset($_SESSION['customer'])) {
+						?>
+						<li style="list-style: none;"><i class="fas fa-user" alt="User" style="font-size: 20px;"><?php echo $_SESSION['customer']['cust_name']; ?></i></li>
+						<li style="list-style: none;"><a href="dashboard.php"><i class="fa fa-home" alt="dashboard" style="font-size: 20px;"></i></a></li>
+						<?php
+					} else {
+						?>
+						<a href="login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
+						<?php	
+					}
+				?>
+		</div>
+	</div>
+
+	<nav style="display:flex; width:100%; justify-content: space-between;">
 		<a href="index.php">Home</a>
 		<a href="product-category.php?id=1&type=top-category">Categories</a>
 		<a href="contact.php">Contact Us</a>
 		<a href="about.php">About Us</a>
 	</nav>
-	<div class="nav-icons" >
-	<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
-		<?php $csrf->echoInputField(); ?>
-		<div class="form-group" >
-			<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="margin-top:13px;">
-		</div>
-		<button type="submit" class="btn btn-success bg-kelshair2">Search</button>
-	</form>
-	</div>
-	<div class=" search-area">
-		<form class="" role="search" action="#" method="post" id="langForm" name="langForm">
-			<?php $csrf->echoInputField(); ?>
-			<div class="form-group">
-				<select class="form-control search-top" name="lang_short_name" style="min-width:100px; width:auto; font-size:16px; padding:3px; margin-top:10px" onchange="document.getElementById('langForm').submit();">
-					<option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
-					<option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
-				</select>
-			</div>
-		</form>
-	</div>
-	<div class="d-flex align-items-center gap-3 flex-wrap">
-			<?php
-			// Count cart items
-			$cart_count = 0;
-			if(isset($_SESSION['cart_p_id'])) {
-				$cart_count = count($_SESSION['cart_p_id']);
-			}
-			// ?>
-			<?php
-				if(isset($_SESSION['customer'])) {
-					?>
-					<li style="list-style: none;"><i class="fas fa-user" alt="User" style="font-size: 20px;"><?php echo $_SESSION['customer']['cust_name']; ?></i></li>
-					<li style="list-style: none;"><a href="dashboard.php"><i class="fa fa-home" alt="dashboard" style="font-size: 20px;"></i></a></li>
-					<?php
-				} else {
-					?>
-					<a href="login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
-					<?php	
-				}
-			?>
-	</div>
-</header>
-
-<div class="header2">
-	<header>
-		<div class="first" style="display:flex; width:100%; justify-content: space-between;">
-			<div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0; padding-right:30px;">
-				<i>Alexdy</i></a>
-			</div>
-			<div class="nav-icons" >
-				<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
-					<?php $csrf->echoInputField(); ?>
-					<div class="form-group" >
-						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="margin-top:13px;">
-					</div>
-					<button type="submit" class="btn btn-success bg-kelshair2">Search</button>
-				</form>
-			</div>
-		</div>
-	</header>
-
-		<div class="second" style="display:flex; width:80%; align-items: center;justify-content:center; margin-left:50px; margin-right:50px;">
-			<div class=" search-area" style="margin-right:50px;">
-				<form class="" role="search" action="#" method="post" id="langForm" name="langForm">
-					<?php $csrf->echoInputField(); ?>
-					<div class="form-group">
-						<select class="form-control search-top" name="lang_short_name" style="min-width:100px; width:auto; font-size:16px; padding:3px; margin-top:10px" onchange="document.getElementById('langForm').submit();">
-							<option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
-							<option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
-						</select>
-					</div>
-				</form>
-			</div>
-			<div class="d-flex align-items-center gap-3 flex-wrap">
-					<?php
-					// Count cart items
-					$cart_count = 0;
-					if(isset($_SESSION['cart_p_id'])) {
-						$cart_count = count($_SESSION['cart_p_id']);
-					}
-					// ?>
-					<?php
-						if(isset($_SESSION['customer'])) {
-							?>
-							<li style="list-style: none;"><i class="fas fa-user" alt="User" style="font-size: 20px;"><?php echo $_SESSION['customer']['cust_name']; ?></i></li>
-							<li style="list-style: none;"><a href="dashboard.php"><i class="fa fa-home" alt="dashboard" style="font-size: 20px;"></i></a></li>
-							<?php
-						} else {
-							?>
-							<a href="login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
-							<?php	
-						}
-					?>
-			</div>
-		</div>
-
-		<nav style="display:flex; width:100%; justify-content: space-between;">
-			<a href="index.php">Home</a>
-			<a href="product-category.php?id=1&type=top-category">Categories</a>
-			<a href="contact.php">Contact Us</a>
-			<a href="about.php">About Us</a>
-		</nav>
 </div>
+

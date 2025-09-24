@@ -111,9 +111,7 @@ foreach ($result as $row) {
 	<link rel="stylesheet" href="assets/css/select2.min.css">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/responsive.css">
-	<link rel="Icon" type="jpg" href="assets/img/Eclipse.png">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<link rel="stylesheet" href="assets/css/styles.css">
+
 	<?php
 
 	$statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
@@ -243,6 +241,7 @@ foreach ($result as $row) {
 	<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5993ef01e2587a001253a261&product=inline-share-buttons"></script>
 
 <?php echo $before_head; ?>
+
 </head>
 <body>
 
@@ -253,116 +252,181 @@ foreach ($result as $row) {
 </div>-->
 
 <!-- top bar -->
-
-
-<header class="header1">
-  <div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0;"><i>Alexdy</i></a></div>
-	<nav>
-		<a href="index.php">Home</a>
-		<a href="product-category.php?id=1&type=top-category">Categories</a>
-		<a href="contact.php">Contact Us</a>
-		<a href="about.php">About Us</a>
-	</nav>
-	<div class="nav-icons" >
-	<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
-		<?php $csrf->echoInputField(); ?>
-		<div class="form-group" >
-			<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="margin-top:13px;">
-		</div>
-		<button type="submit" class="btn btn-success bg-kelshair2">Search</button>
-	</form>
-	</div>
-	<div class=" search-area">
-		<form class="" role="search" action="#" method="post" id="langForm" name="langForm">
-			<?php $csrf->echoInputField(); ?>
-			<div class="form-group">
-				<select class="form-control search-top" name="lang_short_name" style="min-width:100px; width:auto; font-size:16px; padding:3px; margin-top:10px" onchange="document.getElementById('langForm').submit();">
-					<option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
-					<option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
-				</select>
+<div class="top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="left">
+					<ul>
+						<li><i class="fa fa-phone"></i> <?php echo $contact_phone; ?></li>
+						<li><i class="fa fa-envelope-o"></i> <?php echo $contact_email; ?></li>
+					</ul>
+				</div>
 			</div>
-		</form>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="right">
+					<ul>
+						<?php
+						$statement = $pdo->prepare("SELECT * FROM tbl_social");
+						$statement->execute();
+						$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+						foreach ($result as $row) {
+							?>
+							<?php if($row['social_url'] != ''): ?>
+							<li><a href="<?php echo $row['social_url']; ?>"><i class="<?php echo $row['social_icon']; ?>"></i></a></li>
+							<?php endif; ?>
+							<?php
+						}
+						?>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="d-flex align-items-center gap-3 flex-wrap">
-			<?php
-			// Count cart items
-			$cart_count = 0;
-			if(isset($_SESSION['cart_p_id'])) {
-				$cart_count = count($_SESSION['cart_p_id']);
-			}
-			// ?>
-			<?php
-				if(isset($_SESSION['customer'])) {
-					?>
-					<li style="list-style: none;"><i class="fas fa-user" alt="User" style="font-size: 20px;"><?php echo $_SESSION['customer']['cust_name']; ?></i></li>
-					<li style="list-style: none;"><a href="dashboard.php"><i class="fa fa-home" alt="dashboard" style="font-size: 20px;"></i></a></li>
+</div>
+
+
+<div class="header">
+	<div class="container">
+		<div class="row inner">
+			<div class="col-md-4 logo">
+				<a href="index.php"><img src="assets/uploads/<?php echo $logo; ?>" alt="logo image"></a>
+			</div>
+			
+			<div class="col-md-5 right">
+				<ul>
+					
 					<?php
-				} else {
+					if(isset($_SESSION['customer'])) {
+						?>
+						<li><i class="fa fa-user"></i> <?php echo LANG_VALUE_13; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
+						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li>
+						<?php
+					} else {
+						?>
+						<li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo LANG_VALUE_9; ?></a></li>
+						<li><a href="registration.php"><i class="fa fa-user-plus"></i> <?php echo LANG_VALUE_15; ?></a></li>
+						<?php	
+					}
 					?>
-					<a href="login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
-					<?php	
-				}
-			?>
-	</div>
-</header>
 
-<div class="header2">
-	<header>
-		<div class="first" style="display:flex; width:100%; justify-content: space-between;">
-			<div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0; padding-right:30px;">
-				<i>Alexdy</i></a>
+					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
+					if(isset($_SESSION['cart_p_id'])) {
+						$table_total_price = 0;
+						$i=0;
+	                    foreach($_SESSION['cart_p_qty'] as $key => $value) 
+	                    {
+	                        $i++;
+	                        $arr_cart_p_qty[$i] = $value;
+	                    }                    $i=0;
+	                    foreach($_SESSION['cart_p_current_price'] as $key => $value) 
+	                    {
+	                        $i++;
+	                        $arr_cart_p_current_price[$i] = $value;
+	                    }
+	                    for($i=1;$i<=count($arr_cart_p_qty);$i++) {
+	                    	$row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
+	                        $table_total_price = $table_total_price + $row_total_price;
+	                    }
+						echo $table_total_price;
+					} else {
+						echo '0.00';
+					}
+					?>)</a></li>
+				</ul>
 			</div>
-			<div class="nav-icons" >
-				<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
-					<?php $csrf->echoInputField(); ?>
-					<div class="form-group" >
-						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="margin-top:13px;">
-					</div>
-					<button type="submit" class="btn btn-success bg-kelshair2">Search</button>
-				</form>
-			</div>
-		</div>
-	</header>
-
-		<div class="second" style="display:flex; width:80%; align-items: center;justify-content:center; margin-left:50px; margin-right:50px;">
-			<div class=" search-area" style="margin-right:50px;">
-				<form class="" role="search" action="#" method="post" id="langForm" name="langForm">
+			<div class="col-md-3 search-area">
+				<form class="navbar-form navbar-left" role="search" action="search-result.php" method="get">
 					<?php $csrf->echoInputField(); ?>
 					<div class="form-group">
-						<select class="form-control search-top" name="lang_short_name" style="min-width:100px; width:auto; font-size:16px; padding:3px; margin-top:10px" onchange="document.getElementById('langForm').submit();">
-							<option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
-							<option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
-						</select>
+						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text">
 					</div>
+					<button type="submit" class="btn btn-danger"><?php echo LANG_VALUE_3; ?></button>
 				</form>
 			</div>
-			<div class="d-flex align-items-center gap-3 flex-wrap">
-					<?php
-					// Count cart items
-					$cart_count = 0;
-					if(isset($_SESSION['cart_p_id'])) {
-						$cart_count = count($_SESSION['cart_p_id']);
-					}
-					// ?>
-					<?php
-						if(isset($_SESSION['customer'])) {
-							?>
-							<li style="list-style: none;"><i class="fas fa-user" alt="User" style="font-size: 20px;"><?php echo $_SESSION['customer']['cust_name']; ?></i></li>
-							<li style="list-style: none;"><a href="dashboard.php"><i class="fa fa-home" alt="dashboard" style="font-size: 20px;"></i></a></li>
+			<div class="col-md-3 search-area">
+                <form class="" role="search" action="#" method="post" id="langForm" name="langForm">
+                    <?php $csrf->echoInputField(); ?>
+                    <div class="form-group">
+                        <select class="form-control search-top" name="lang_short_name" style="min-width:100px; width:auto; font-size:16px; padding:3px; margin-top:10px" onchange="document.getElementById('langForm').submit();">
+   							<option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
+    						<option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
+						</select>
+                    </div>
+                </form>
+            </div>
+		</div>
+	</div>
+</div>
+
+<div class="nav">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 pl_0 pr_0">
+				<div class="menu-container">
+					<div class="menu">
+						<ul>
+							<li><a href="index.php">Home</a></li>
+							
 							<?php
-						} else {
+							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
+							$statement->execute();
+							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+							foreach ($result as $row) {
+								?>
+								<li><a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
+									<ul>
+										<?php
+										$statement1 = $pdo->prepare("SELECT * FROM tbl_mid_category WHERE tcat_id=?");
+										$statement1->execute(array($row['tcat_id']));
+										$result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+										foreach ($result1 as $row1) {
+											?>
+											<li><a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row1['mcat_name']; ?></a>
+												<ul>
+													<?php
+													$statement2 = $pdo->prepare("SELECT * FROM tbl_end_category WHERE mcat_id=?");
+													$statement2->execute(array($row1['mcat_id']));
+													$result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
+													foreach ($result2 as $row2) {
+														?>
+														<li><a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row2['ecat_name']; ?></a></li>
+														<?php
+													}
+													?>
+												</ul>
+											</li>
+											<?php
+										}
+										?>
+									</ul>
+								</li>
+								<?php
+							}
 							?>
-							<a href="login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
-							<?php	
-						}
-					?>
+
+							<?php
+							$statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
+							$statement->execute();
+							$result = $statement->fetchAll(PDO::FETCH_ASSOC);		
+							foreach ($result as $row) {
+								$about_title = $row['about_title'];
+								$faq_title = $row['faq_title'];
+								$blog_title = $row['blog_title'];
+								$contact_title = $row['contact_title'];
+								$pgallery_title = $row['pgallery_title'];
+								$vgallery_title = $row['vgallery_title'];
+							}
+							?>
+
+							<li><a href="about.php"><?php echo $about_title; ?></a></li>
+							<li><a href="faq.php"><?php echo $faq_title; ?></a></li>
+
+							<li><a href="contact.php"><?php echo $contact_title; ?></a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-
-		<nav style="display:flex; width:100%; justify-content: space-between;">
-			<a href="index.php">Home</a>
-			<a href="product-category.php?id=1&type=top-category">Categories</a>
-			<a href="contact.php">Contact Us</a>
-			<a href="about.php">About Us</a>
-		</nav>
+	</div>
 </div>
