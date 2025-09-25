@@ -104,10 +104,11 @@ nav a:hover {
 
 .header2{
     display: none;
+    
 }
 
 @media (max-width: 1100px) {
-    .header1{
+    .header1, .categories, #services{
         display: none;
     }
     .header2{
@@ -115,6 +116,21 @@ nav a:hover {
         flex-direction: column;
     }
 }
+
+
+    /* Top Nav */
+
+.top-nav a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.top-nav a:hover {
+    color: var(--secondary-blue);
+}
+
 
 .hero {
     background: linear-gradient(to bottom right, var(--light-blue), var(--white));
@@ -781,4 +797,36 @@ h2 {
 
 .page-banner{
     background-color: var(--primary-blue);
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-top: 1px solid var(--light-gray);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    z-index: 1000;
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    text-align: center;
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.bottom-nav a i {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+}
+
+.bottom-nav a.active {
+    color: var(--primary-blue);
 }

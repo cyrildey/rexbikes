@@ -18,7 +18,7 @@ foreach ($result as $row)
 
 
 <?php if($newsletter_on_off == 1): ?>
-<footer>
+<footer id="footer1" style="display:none;">
   <div class="footer-content">
     <div class="footer-column">
       <h3>Alexdy</h3>
@@ -69,11 +69,41 @@ foreach ($result as $row)
     <?php echo $footer_copyright; ?>
   </div>
 </footer>
+
+<div id="footer2" style="display:none;">
+  <nav class="bottom-nav" style="margin-bottom: 60px;">
+    <a href="index.php" class="active"><i class="fa fa-home"></i>Home</a>
+    <a href="about.php"><i class="fa fa-info-circle"></i>About</a>
+    <a href="contact.php"><i class="fa fa-envelope"></i>Contact</a>
+    <a href="login.php"><i class="fa fa-user"></i>User</a>
+  </nav>
+</div>
 <?php endif; ?>
 
 <a href="#" class="scrollup">
 	<i class="fa fa-angle-up"></i>
 </a>
+
+<script>
+function toggleHeader() {
+    const largeHeader = document.getElementById('footer1');
+    const smallHeader = document.getElementById('footer2');
+    const width = window.innerWidth;
+
+    if (width <= 1100) {
+        largeHeader.style.display = 'none';
+        smallHeader.style.display = 'block';
+    } else {
+        largeHeader.style.display = 'block';
+        smallHeader.style.display = 'none';
+    }
+}
+
+// Run on load
+window.addEventListener('load', toggleHeader);
+// Run on resize
+window.addEventListener('resize', toggleHeader);
+</script>
 
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
