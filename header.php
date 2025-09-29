@@ -272,7 +272,7 @@ foreach ($result as $row) {
 		<button type="submit" class="btn btn-success bg-kelshair2">Search</button>
 	</form>
 	</div>
-	<div class=" search-area">
+	<div class="search-area">
 		<form class="" role="search" action="#" method="post" id="langForm" name="langForm">
 			<?php $csrf->echoInputField(); ?>
 			<div class="form-group">
@@ -309,11 +309,22 @@ foreach ($result as $row) {
 <div class="header2">
     <div class="header-responce" style="display: flex; align-items: center; gap: 10px; padding: 10px; color: var(--white); background-color: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);">
 		<a href="index.php"><img src="assets/uploads/logo.png" alt="Logo" style=" height: 28px;"></a>
-		<input type="text" placeholder="Search?" style="flex: 1; padding: 8px 9px; border: none; border-radius: 20px; font-size: 14px; outline: none; background: var(--light-green); color: var(--dark-gray);">
-		<select id="languageSelect" style="padding: 6px 10px; border: none; border-radius: 20px; background: #024c92; color: var(--white); font-size: 14px; cursor: pointer;">
-			<option value="en">EN</option>
-			<option value="fr">FR</option>
-		</select>
+		<form class="search-box" role="search" action="search-result.php" method="get" style="flex: 1; align-items: center; align-content: center;">
+			<?php $csrf->echoInputField(); ?>
+			<input type="text" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="width:100%; padding: 8px 6px; border: none; border-radius: 20px; font-size: 14px; outline: none; background: var(--light-green); color: var(--dark-gray);">
+		</form>
+		<div class="search-area" style="display:flex;">
+            <form class="" role="search" action="#" method="post" id="langForm2" name="langForm2" style="align-items: center; align-content: center; align-self: center;"">
+                <?php $csrf->echoInputField(); ?>
+                <div class="">
+                    <select class="form-control search-top" name="lang_short_name" style="padding: 6px 10px; border: none; border-radius: 20px; background: #024c92; color: var(--white); font-size: 14px; cursor: pointer;" onchange="document.getElementById('langForm2').submit();">
+                        <option value="<?php echo $lang ?>"><?php echo $lang_full_name ?> </option>
+                        <option value="<?php echo ($lang == 'lang_fr') ? 'lang_value' : 'lang_fr' ?>"><?php echo ($lang == 'lang_fr') ? 'English' : 'Français' ?> </option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
 	</div>
     <div class="top-nav" style="display: flex; overflow-x: auto; padding: 10px; border-bottom: 1px solid #ddd; gap: 15px; background: var(--white);">
         <?php
