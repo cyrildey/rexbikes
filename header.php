@@ -239,8 +239,9 @@ foreach ($result as $row) {
 	<?php endif; ?>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-
+<!--
 	<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5993ef01e2587a001253a261&product=inline-share-buttons"></script>
+-->
 
 <?php echo $before_head; ?>
 </head>
@@ -299,7 +300,10 @@ foreach ($result as $row) {
 					<?php
 				} else {
 					?>
-					<a href="login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
+					<a href="admin/login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
+					<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
+						<button type="submit" class="btn btn-success bg-kelshair2">Post</button>
+					</form>
 					<?php	
 				}
 			?>

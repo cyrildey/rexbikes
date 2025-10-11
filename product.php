@@ -481,7 +481,7 @@ if($success_message1 != '') {
 							</div>
                             </form>
 
-                            <div class="modal fade" id="contactSupplierModal" tabindex="-1" role="dialog" aria-labelledby="contactSupplierLabel">
+                            <div class="modal fade" id="contactSupplierModal" tabindex="-1" role="dialog" aria-labelledby="contactSupplierLabel" style="z-index: 1050;">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">

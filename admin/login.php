@@ -91,6 +91,7 @@ if(isset($_POST['form1'])) {
 					<input type="submit" class="btn btn-success btn-block btn-flat login-button" name="form1" value="Log In">
 				</div>
 			</div>
+			Don't yet have an account? <a href="../seller-register.php">Resgister here </a>
 		</form>
 	</div>
 </div>
