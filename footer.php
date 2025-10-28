@@ -21,7 +21,7 @@ foreach ($result as $row)
 <footer id="footer1" style="display:none;">
   <div class="footer-content">
     <div class="footer-column">
-      <h3>Alexdy</h3>
+      <h3>REXBIKES</h3>
       <p>The premier marketplace for business services, connecting providers with clients worldwide.</p>
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -71,12 +71,7 @@ foreach ($result as $row)
 </footer>
 
 <div id="footer2" style="display:none;">
-  <nav class="bottom-nav" style="margin-bottom: 60px;">
-    <a href="index.php" class="active"><i class="fa fa-home"></i>Home</a>
-    <a href="about.php"><i class="fa fa-info-circle"></i>About</a>
-    <a href="contact.php"><i class="fa fa-envelope"></i>Contact</a>
-    <a href="login.php"><i class="fa fa-user"></i>User</a>
-  </nav>
+  
 </div>
 <?php endif; ?>
 

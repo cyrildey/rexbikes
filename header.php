@@ -257,7 +257,7 @@ foreach ($result as $row) {
 
 
 <header class="header1">
-  <div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0;"><i>Alexdy</i></a></div>
+  <div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0;"><i>REXBIKES</i></a></div>
 	<nav>
 		<a href="index.php">Home</a>
 		<a href="product-category.php?id=1&type=top-category">Categories</a>

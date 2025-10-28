@@ -27,15 +27,334 @@ foreach ($result as $row)
     $home_popular_product_on_off = $row['home_popular_product_on_off'];
 
 }
-
-
 ?>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="CycleCity offers a wide range of bicycles, gear, and accessories for every type of cyclist. Explore our collection and gear up for your next adventure!">
+    <meta name="keywords"
+        content="bicycles, bikes, cycling gear, bike accessories, mountain bikes, road bikes, CycleCity">
+    <meta name="author" content="CycleCity Team">
 
+    <meta property="og:title" content="CycleCity | Quality Bicycles and Cycling Gear">
+    <meta property="og:description"
+        content="Discover the best selection of bicycles, gear, and accessories at CycleCity. Shop now for top brands and quality service.">
+    <meta property="og:image" content="assets/images/logo.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CycleCity | Quality Bicycles and Cycling Gear">
+    <meta name="twitter:description"
+        content="Explore the latest in bicycles, cycling gear, and accessories at CycleCity. Gear up for your next adventure!">
+    <meta name="twitter:image" content="assets/images/logo.png">
+    <meta name="twitter:site" content="@CycleCity">
+
+    <title>CycleCity | Your Hub for Quality Bicycles, Gear, and Accessories</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+    <script defer src="assets/js/main.js"></script><link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+
+ <!-- hero section start -->
+        <section class="hero-section px-xl-20 px-lg-10 px-sm-7 pt-120">
+            <div class="container-fluid">
+                <div class="row g-6">
+                    <div class="col-lg-7">
+                        <div
+                            class="hero-swiper-wrapper py-3xl-12 py-lg-8 py-6 px-4xl-20 px-3xl-10 px-lg-8 px-sm-6 p-4 bg-secondary">
+                            <span class="text-animation-word display-two text-n100 mb-1 text-center">FREEDOM RIDE</span>
+                            <span class="text-animation-word d-block text-n100 mb-lg-5 mb-3 text-center">
+                                Your personal electric bike with insurance from <span
+                                    class="text-secondary2">€88/</span>month.
+                            </span>
+                            <div class="d-center gap-lg-5 gap-3">
+                                <a href="shop.html" class="btn-secondary">Shop Bikes
+                                    <span class="icon">
+                                        <i class="ph ph-arrow-up-right"></i>
+                                        <i class="ph ph-arrow-up-right"></i>
+                                    </span>
+                                </a>
+                                <a href="about-us.html"
+                                    class="text-decoration-underline fw-medium hover-text-secondary2">Learn
+                                    More</a>
+                            </div>
+
+                            <!-- hero swiper -->
+                            <div class="swiper hero-swiper pt-4xl-18 pt-10">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide px-3xl-8">
+                                        <!-- hero swiper item -->
+                                        <div class="hero-swiper-item position-relative z-1">
+                                            <span class="bg-text text-uppercase font-archivo top-30 left-50">C4</span>
+                                            <img class="w-100" src="assets/images/hero-swiper-1.png" alt="hero swiper">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide px-3xl-8">
+                                        <!-- hero swiper item -->
+                                        <div class="hero-swiper-item position-relative z-1">
+                                            <span class="bg-text text-uppercase font-archivo top-30 left-50">T4</span>
+                                            <img class="w-100" src="assets/images/hero-swiper-2.png" alt="hero swiper">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide px-3xl-8">
+                                        <!-- hero swiper item -->
+                                        <div class="hero-swiper-item position-relative z-1">
+                                            <span class="bg-text text-uppercase font-archivo top-30 left-50">A7</span>
+                                            <img class="w-100" src="assets/images/hero-swiper-3.png" alt="hero swiper">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="d-flex align-items-center justify-content-center gap-3 mt-n15 position-relative z-3">
+                                <button
+                                    class="hero-swiper-prev icon-48px hover-text-n0 border border-n100-2 box-style box-secondary2">
+                                    <i class="ph ph-caret-left"></i>
+                                </button>
+                                <button
+                                    class="hero-swiper-next icon-48px hover-text-n0 border border-n100-2 box-style box-secondary2">
+                                    <i class="ph ph-caret-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <!-- hero banner -->
+                        <div class="d-lg-grid d-sm-flex d-grid  gap-6">
+                            <!-- hero banner item -->
+                            <div class="animate-box">
+                                <a href="accessories.html"
+                                    class="hero-banner-item d-block hover-border-secondary2 position-relative z-1 overflow-hidden">
+                                    <div class="hero-banner-wrapper">
+                                        <img class="w-100 transition" src="assets/images/hero-banner-1.png"
+                                            alt="hero banner">
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- hero banner item -->
+                            <div class="animate-box">
+                                <a href="accessories.html"
+                                    class="hero-banner-item d-block hover-border-n0 position-relative z-1 overflow-hidden">
+                                    <div class="hero-banner-wrapper">
+                                        <img class="w-100 transition" src="assets/images/hero-banner-2.png"
+                                            alt="hero banner">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- hero section end -->
+
+        <!-- text slider start -->
+        <div class="my-6 p-lg-6 p-4 bg-primary overflow-hidden">
+            <div class="swiper text-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Free shipping for orders over $899
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                SPECIAL DISCOUNT
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Shipping through all of Europe
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Expert advice
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Returns extends over a period of 14 days
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Check Out Our Trendy E-Bikes
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Explore Our Latest Mountain Bikes
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Free shipping for orders over $899
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Returns extends over a period of 14 days
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Check Out Our Trendy E-Bikes
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                SPECIAL DISCOUNT
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Shipping through all of Europe
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Free shipping for orders over $899
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                SPECIAL DISCOUNT
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Shipping through all of Europe
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Expert advice
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Returns extends over a period of 14 days
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Check Out Our Trendy E-Bikes
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Explore Our Latest Mountain Bikes
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Free shipping for orders over $899
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Returns extends over a period of 14 days
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Check Out Our Trendy E-Bikes
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                SPECIAL DISCOUNT
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Shipping through all of Europe
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 <div id="desktop">
 
     <section class="hero">
     <h1>Connect with Expert Service Providers</h1>
-    <p>Alexdy is a premium marketplace connecting businesses with top-quality service providers across various industries.</p>
+    <p>REXBIKES is a premium marketplace connecting businesses with top-quality service providers across various industries.</p>
     <div class="hero-buttons">
         <button class="btn btn-secondary">Find Services</button>
     </div>

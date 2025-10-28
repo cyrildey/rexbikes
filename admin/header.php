@@ -59,7 +59,7 @@ $allowed_pages_for_seller = array('product.php','product-add.php','product-edit.
 		<header class="main-header">
 
 			<a href="index.php" class="logo">
-				<span class="logo-lg">Alexdy</span>
+				<span class="logo-lg">REXBIKES</span>
 			</a>
 
 			<nav class="navbar navbar-static-top">

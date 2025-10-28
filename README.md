@@ -1,2 +1,2 @@
-Alexdy 
-All you need, served with ease
+REXBIKES 
+Your bikes made easy!
