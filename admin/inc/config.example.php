@@ -9,11 +9,11 @@ date_default_timezone_set('America/Los_Angeles');
 $dbhost = 'localhost';
 
 // Database Name
-$dbname = 'testwebsite';
+$dbname = 'testwebsites';
 
 // Database Username
 //$dbuser = 'root';
-$dbuser = 'testwebsite';
+$dbuser = 'testwebsites';
 
 // Database Password
 $dbpass = 'PWD$4$testwebsites';
