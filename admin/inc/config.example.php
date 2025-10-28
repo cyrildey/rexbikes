@@ -9,13 +9,14 @@ date_default_timezone_set('America/Los_Angeles');
 $dbhost = 'localhost';
 
 // Database Name
-$dbname = 'ecommerceweb3';
+$dbname = 'testwebsite';
 
 // Database Username
-$dbuser = 'root';
+//$dbuser = 'root';
+$dbuser = 'testwebsite';
 
 // Database Password
-$dbpass = '';
+$dbpass = 'PWD$4$testwebsite';
 
 // Defining base url
 define("BASE_URL", "");
