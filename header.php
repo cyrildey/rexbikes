@@ -318,7 +318,7 @@ foreach ($result as $row) {
 	<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
 		<?php $csrf->echoInputField(); ?>
 		<div class="form-group" >
-			<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="margin-top:13px;">
+			<input type="text" class="form-control search-top" placeholder="Search Bike" name="search_text" style="margin-top:13px;">
 		</div>
 		<button type="submit" class="btn bg-secondary bg-kelshair2">Search</button>
 	</form>

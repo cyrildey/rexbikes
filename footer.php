@@ -66,10 +66,12 @@ foreach ($result as $row)
 function toggleFooter() {
     const largeFooter = document.getElementById('footer1');
     const smallFooter = document.getElementById('footer2');
+    const left = document.getElementById('left');
     const width = window.innerWidth;
 
         largeFooter.style.display = 'block';
         smallFooter.style.display = 'none';
+        if(width < 992) left.style.display = 'none';
 }
 // Run on load
 window.addEventListener('load', toggleFooter);
