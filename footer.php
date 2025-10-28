@@ -22,19 +22,14 @@ foreach ($result as $row)
   <div class="footer-content">
     <div class="footer-column">
       <h3>REXBIKES</h3>
-      <p>The premier marketplace for business services, connecting providers with clients worldwide.</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+      <p>The premier marketplace for bikes services, providing you with the best bikes world wide.</p>
+      
     </div>
     <div class="footer-column">
       <h3>Quick Links</h3>
       <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="allproduct.php">shop</a></li>
         <li><a href="product-category.php?id=1&type=top-category">Categories</a></li>
         <li><a href="#">How It Works</a></li>
         <li><a href="about.php">About Us</a></li>
@@ -42,6 +37,7 @@ foreach ($result as $row)
     </div>
     <div class="footer-column">
       <h3>Help & Support</h3>
+      <!--
       <ul>
         <li><a href="faq.php">FAQ</a></li>
         <li><a href="#">Terms of Service</a></li>
@@ -49,21 +45,8 @@ foreach ($result as $row)
         <li><a href="contact.php">Contact Support</a></li>
         <li><a href="#">Become a Provider</a></li>
       </ul>
+      -->
     </div>
-	<div class="footer-column">
-		<?php $csrf->echoInputField(); ?>
-		<h2><?php echo LANG_VALUE_93; ?></h2>
-		<form action="" method="post">
-
-			<div class="input-group">
-			<input type="email" class="form-control" placeholder="<?php echo LANG_VALUE_95; ?>" name="email_subscribe" style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 4px; border: 1px solid #cbd5e0;">
-			<span class="input-group-btn">
-			<button class="btn btn-primary" style="width: 100%;" type="submit" name="form_subscribe"><?php echo LANG_VALUE_92; ?></button>
-			</span>
-			</div>
-			</div>
-		</form>
-	</div>
   </div>
   <div class="copyright">
     <?php echo $footer_copyright; ?>
@@ -80,24 +63,18 @@ foreach ($result as $row)
 </a>
 
 <script>
-function toggleHeader() {
-    const largeHeader = document.getElementById('footer1');
-    const smallHeader = document.getElementById('footer2');
+function toggleFooter() {
+    const largeFooter = document.getElementById('footer1');
+    const smallFooter = document.getElementById('footer2');
     const width = window.innerWidth;
 
-    if (width <= 1100) {
-        largeHeader.style.display = 'none';
-        smallHeader.style.display = 'block';
-    } else {
-        largeHeader.style.display = 'block';
-        smallHeader.style.display = 'none';
-    }
+        largeFooter.style.display = 'block';
+        smallFooter.style.display = 'none';
 }
-
 // Run on load
-window.addEventListener('load', toggleHeader);
+window.addEventListener('load', toggleFooter);
 // Run on resize
-window.addEventListener('resize', toggleHeader);
+window.addEventListener('resize', toggleFooter);
 </script>
 
 <?php

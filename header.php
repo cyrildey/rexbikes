@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lang_short_name'])) {
 }
 
 
-$lang = isset($_SESSION['lang_short_name']) ? $_SESSION['lang_short_name'] : 'lang_fr';
+$lang = isset($_SESSION['lang_short_name']) ? $_SESSION['lang_short_name'] : 'lang_value';
 $lang_full_name = ($lang == 'lang_fr') ? 'Français' : 'English';
 
 
@@ -258,21 +258,72 @@ foreach ($result as $row) {
 
 <header class="header1">
   <div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0;"><i>REXBIKES</i></a></div>
-	<nav>
-		<a href="index.php">Home</a>
-		<a href="product-category.php?id=1&type=top-category">Categories</a>
-		<a href="contact.php">Contact Us</a>
-		<a href="about.php">About Us</a>
-	</nav>
+	<div class="nav">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 pl_0 pr_0">
+					<div class="menu-container">
+						<div class="menu">
+							<ul>
+								<li><a href="index.php">Home</a></li>
+								
+								<?php
+								$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
+								$statement->execute();
+								$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+								foreach ($result as $row) {
+									?>
+									<li><a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
+										<ul>
+											<?php
+											$statement1 = $pdo->prepare("SELECT * FROM tbl_mid_category WHERE tcat_id=?");
+											$statement1->execute(array($row['tcat_id']));
+											$result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+											foreach ($result1 as $row1) {
+												?>
+												<li><a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row1['mcat_name']; ?></a>
+													<ul>
+														<?php
+														$statement2 = $pdo->prepare("SELECT * FROM tbl_end_category WHERE mcat_id=?");
+														$statement2->execute(array($row1['mcat_id']));
+														$result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
+														foreach ($result2 as $row2) {
+															?>
+															<li><a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row2['ecat_name']; ?></a></li>
+															<?php
+														}
+														?>
+													</ul>
+												</li>
+												<?php
+											}
+											?>
+										</ul>
+									</li>
+									<?php
+								}
+								?>
+								<li><a href="allproducts">Bikes</a></li>
+								<li><a href="about.php">About us</a></li>
+
+								<li><a href="contact.php">Contact us></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="nav-icons" >
 	<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
 		<?php $csrf->echoInputField(); ?>
 		<div class="form-group" >
 			<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="margin-top:13px;">
 		</div>
-		<button type="submit" class="btn btn-success bg-kelshair2">Search</button>
+		<button type="submit" class="btn bg-secondary bg-kelshair2">Search</button>
 	</form>
 	</div>
+	<!--
 	<div class="search-area">
 		<form class="" role="search" action="#" method="post" id="langForm" name="langForm">
 			<?php $csrf->echoInputField(); ?>
@@ -302,12 +353,13 @@ foreach ($result as $row) {
 					?>
 					<a href="admin/login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
 					<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
-						<button type="submit" class="btn btn-success bg-kelshair2">Post</button>
+						<button type="submit" class="btn bg-secondary bg-kelshair2">Post</button>
 					</form>
 					<?php	
 				}
 			?>
 	</div>
+	-->
 </header>
 
 <div class="header2">
@@ -317,6 +369,7 @@ foreach ($result as $row) {
 			<?php $csrf->echoInputField(); ?>
 			<input type="text" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="width:100%; padding: 8px 6px; border: none; border-radius: 20px; font-size: 14px; outline: none; background: var(--light-green); color: var(--dark-gray);">
 		</form>
+		<!--
 		<div class="search-area" style="display:flex;">
             <form class="" role="search" action="#" method="post" id="langForm2" name="langForm2" style="align-items: center; align-content: center; align-self: center;"">
                 <?php $csrf->echoInputField(); ?>
@@ -328,6 +381,7 @@ foreach ($result as $row) {
                 </div>
             </form>
         </div>
+			-->
 
 	</div>
     <div class="top-nav" style="display: flex; overflow-x: auto; padding: 10px; border-bottom: 1px solid #ddd; gap: 15px; background: var(--white);">

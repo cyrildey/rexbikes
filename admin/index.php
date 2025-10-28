@@ -54,7 +54,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 <div class="row">
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
-              <div class="small-box bg-primary">
+              <div class="small-box bg-secondary">
                 <div class="inner">
                   <h3><?php echo $total_product; ?></h3>
 
