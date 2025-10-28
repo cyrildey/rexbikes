@@ -16,7 +16,7 @@ $dbname = 'testwebsite';
 $dbuser = 'testwebsite';
 
 // Database Password
-$dbpass = 'PWD$4$testwebsite';
+$dbpass = 'PWD$4$testwebsites';
 
 // Defining base url
 define("BASE_URL", "");
