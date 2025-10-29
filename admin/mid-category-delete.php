@@ -29,11 +29,12 @@ if(!isset($_REQUEST['id'])) {
 	}
 
 	if(isset($ecat_ids)) {
-
+		$p_ids[] = array();
 		for($i=0;$i<count($ecat_ids);$i++) {
-			$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id=?");
+			$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id IN (?)");
 			$statement->execute(array($ecat_ids[$i]));
-			$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+			$result = $statement->fetchAll(PDO::FETCH_ASSOC);		
+			print_r($result);		
 			foreach ($result as $row) {
 				$p_ids[] = $row['p_id'];
 			}
