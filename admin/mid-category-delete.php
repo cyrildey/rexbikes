@@ -29,7 +29,7 @@ if(!isset($_REQUEST['id'])) {
 	}
 
 	if(isset($ecat_ids)) {
-		$p_ids[] = array();
+		$p_ids = array();						
 		for($i=0;$i<count($ecat_ids);$i++) {
 			$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id IN (?)");
 			$statement->execute(array($ecat_ids[$i]));

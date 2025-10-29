@@ -24,7 +24,7 @@ if(!isset($_REQUEST['id'])) {
 	$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id=?");
 	$statement->execute(array($_REQUEST['id']));
 	$result = $statement->fetchAll(PDO::FETCH_ASSOC);	
-	$p_ids[] = array();						
+	$p_ids = array();						
 	foreach ($result as $row) {
 		$p_ids[] = $row['p_id'];
 	}
