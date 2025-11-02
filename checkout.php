@@ -1,4 +1,5 @@
-<?php require_once('header.php'); ?>
+<?php 
+require_once('header.php'); ?>
 
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
@@ -15,7 +16,35 @@ if(!isset($_SESSION['cart_p_id'])) {
     exit;
 }
 ?>
+<style>
+    /* Custom Dropdown Style */
+.dropdown-menu {
+    width: 100%;
+}
 
+.payment-logo {
+    width: 50px;
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Adjust width for large logos */
+.payment-logo.large {
+    width: 25px;
+    height: 25px;
+}
+
+</style>
 <div class="page-banner" style="background-image: url(assets/uploads/<?php echo $banner_checkout; ?>)">
     <div class="overlay"></div>
     <div class="page-banner-inner">
@@ -28,7 +57,12 @@ if(!isset($_SESSION['cart_p_id'])) {
         <div class="row">
             <div class="col-md-12">
                 
-                <?php if(!isset($_SESSION['customer'])): ?>
+                <?php if(!isset($_SESSION['customer'])):
+                    $_SESSION['next_page'] = 'checkout.php';
+                    header('location: '.BASE_URL.'login.php');
+                    exit;
+                ?>
+
                     <p>
                         <a href="login.php" class="btn btn-md btn-danger"><?php echo LANG_VALUE_160; ?></a>
                     </p>
@@ -122,20 +156,20 @@ if(!isset($_SESSION['cart_p_id'])) {
                             <td><?php echo $arr_cart_p_name[$i]; ?></td>
                             <td><?php echo $arr_cart_size_name[$i]; ?></td>
                             <td><?php echo $arr_cart_color_name[$i]; ?></td>
-                            <td><?php echo LANG_VALUE_1; ?><?php echo $arr_cart_p_current_price[$i]; ?></td>
+                            <td><?php echo LANG_VALUE_1; ?> <?php echo $arr_cart_p_current_price[$i]; ?></td>
                             <td><?php echo $arr_cart_p_qty[$i]; ?></td>
                             <td class="text-right">
                                 <?php
                                 $row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
                                 $table_total_price = $table_total_price + $row_total_price;
                                 ?>
-                                <?php echo LANG_VALUE_1; ?><?php echo $row_total_price; ?>
+                                <?php echo LANG_VALUE_1; ?> <?php echo $row_total_price; ?>
                             </td>
                         </tr>
                         <?php endfor; ?>           
                         <tr>
                             <th colspan="7" class="total-text"><?php echo LANG_VALUE_81; ?></th>
-                            <th class="total-amount"><?php echo LANG_VALUE_1; ?><?php echo $table_total_price; ?></th>
+                            <th class="total-amount"><?php echo LANG_VALUE_1; ?> <?php echo $table_total_price; ?></th>
                         </tr>
                         <?php
                         $statement = $pdo->prepare("SELECT * FROM tbl_shipping_cost WHERE country_id=?");
@@ -157,7 +191,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                         ?>
                         <tr>
                             <td colspan="7" class="total-text"><?php echo LANG_VALUE_84; ?></td>
-                            <td class="total-amount"><?php echo LANG_VALUE_1; ?><?php echo $shipping_cost; ?></td>
+                            <td class="total-amount"><?php echo LANG_VALUE_1; ?> <?php echo $shipping_cost; ?></td>
                         </tr>
                         <tr>
                             <th colspan="7" class="total-text"><?php echo LANG_VALUE_82; ?></th>
@@ -165,7 +199,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                                 <?php
                                 $final_total = $table_total_price+$shipping_cost;
                                 ?>
-                                <?php echo LANG_VALUE_1; ?><?php echo $final_total; ?>
+                                <?php echo LANG_VALUE_1; ?> <?php echo $final_total; ?>
                             </th>
                         </tr>
                     </table> 
@@ -319,14 +353,41 @@ if(!isset($_SESSION['cart_p_id'])) {
 		                	<div class="col-md-4">
 		                		
 	                            <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label for="payment_method"><?php echo LANG_VALUE_34; ?> *</label>
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="paymentMethodDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <?php echo LANG_VALUE_35; ?>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="paymentMethodDropdown">
+                                                
+                                                <a class="dropdown-item" href="#" data-value="Zelle">
+                                                    <img src="assets/img/payment/Zelle.png" alt="Zelle" class="payment-logo"> Zelle
+                                                </a>
+                                                <a class="dropdown-item" href="#" data-value="Apple Pay">
+                                                    <img src="assets/img/payment/Apple_Pay.png" alt="Apple Pay" class="payment-logo"> Apple Pay
+                                                </a>
+                                                <a class="dropdown-item" href="#" data-value="Chime">
+                                                    <img src="assets/img/payment/chime.webp" alt="Chime" class="payment-logo"> Chime
+                                                </a>
+                                                <a class="dropdown-item" href="#" data-value="Bank Transfer">
+                                                    <img src="assets/img/payment/bank-transfer-logo.svg" alt="Bank Transfer" class="payment-logo"> Bank Transfer
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
 	                                <div class="col-md-12 form-group">
-	                                    <label for=""><?php echo LANG_VALUE_34; ?> *</label>
-	                                    <select name="payment_method" class="form-control select2" id="advFieldsStatus">
-	                                        <option value=""><?php echo LANG_VALUE_35; ?></option>
-	                                        <option value="PayPal"><?php echo LANG_VALUE_36; ?></option>
-	                                        <option value="Bank Deposit"><?php echo LANG_VALUE_38; ?></option>
-	                                    </select>
+                                        <select name="payment_method" id="advFieldsStatus" style="display: none;">
+                                            <option value=""></option>
+                                            <option value="Bank Deposit">Bank Deposit</option>
+                                            <option value="Zelle">Zelle</option>
+                                            <option value="Apple Pay">Apple Pay</option>
+                                            <option value="Chime">Chime</option>
+                                            <option value="Bank Transfer">Bank Transfer</option>
+                                        </select>
+
+	                                   
 	                                </div>
 
                                     <form class="paypal" action="<?php echo BASE_URL; ?>payment/paypal/payment_process.php" method="post" id="paypal_form" target="_blank">
@@ -345,6 +406,7 @@ if(!isset($_SESSION['cart_p_id'])) {
 
 
                                     <form action="payment/bank/init.php" method="post" id="bank_form">
+                                        <input type="hidden" name="payment_method" id="bank_payment_method">
                                         <input type="hidden" name="amount" value="<?php echo $final_total; ?>">
                                         <div class="col-md-12 form-group">
                                             <label for=""><?php echo LANG_VALUE_43; ?></span></label><br>
@@ -362,7 +424,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                                             <textarea name="transaction_info" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_46; ?>" name="form3">
+                                            <input type="submit" class="btn btn-primary" value="Place Order" name="form3">
                                         </div>
                                     </form>
 	                                
@@ -374,7 +436,50 @@ if(!isset($_SESSION['cart_p_id'])) {
                         
                 </div>
                 
+                 <script>
+                    document.querySelectorAll('.dropdown-item').forEach(function(item) {
+                        item.addEventListener('click', function(event) {
+                            // Prevent the page from refreshing
+                            event.preventDefault();
 
+                            // Update the dropdown button text with the selected value
+                            var selectedText = this.innerHTML.trim();
+                            var button = document.getElementById('paymentMethodDropdown');
+                            button.innerHTML = selectedText;
+
+                            // Update the hidden select input's value (if you need it to be submitted with the form)
+                            var selectedValue = this.getAttribute('data-value');
+                            document.getElementById('bank_payment_method').value = selectedValue;
+                            document.querySelector('select[id="advFieldsStatus"]').value = selectedValue;
+                            advFieldsStatus = selectedValue;
+                            if ( advFieldsStatus == '' ) {
+                                $('#paypal_form').hide();
+                                $('#stripe_form').hide();
+                                $('#bank_form').hide();
+                            } else if ( advFieldsStatus == 'PayPal' ) {
+                                $('#paypal_form').show();
+                                $('#stripe_form').hide();
+                                $('#bank_form').hide();
+                            } else if ( advFieldsStatus == 'Stripe' ) {
+                                $('#paypal_form').hide();
+                                $('#stripe_form').show();
+                                $('#bank_form').hide();
+                            } else if ( advFieldsStatus == 'Bank Deposit' ) {
+                                $('#paypal_form').hide();
+                                $('#stripe_form').hide();
+                                $('#bank_form').show();
+                            }
+                            else {
+                                $('#paypal_form').hide();
+                                $('#stripe_form').hide();
+                                $('#bank_form').show();
+                            }
+                            
+                        });
+                    });
+
+
+                 </script>                           
                 <?php endif; ?>
 
             </div>

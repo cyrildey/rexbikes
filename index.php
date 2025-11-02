@@ -157,7 +157,7 @@ foreach ($result as $row)
                     <div class="swiper-slide w-fit">
                         <div class="d-flex align-items-center gap-lg-6 gap-4">
                             <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Free shipping for orders over $899
+                                 SPECIAL DISCOUNT
                             </span>
                             <span class="d-block w-1px h-24px bg-n100"></span>
                         </div>
@@ -165,7 +165,7 @@ foreach ($result as $row)
                     <div class="swiper-slide w-fit">
                         <div class="d-flex align-items-center gap-lg-6 gap-4">
                             <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                SPECIAL DISCOUNT
+                                Free shipping for orders over $899 within USA
                             </span>
                             <span class="d-block w-1px h-24px bg-n100"></span>
                         </div>
@@ -173,7 +173,7 @@ foreach ($result as $row)
                     <div class="swiper-slide w-fit">
                         <div class="d-flex align-items-center gap-lg-6 gap-4">
                             <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Shipping through all of Europe
+                                Shipping World Wide
                             </span>
                             <span class="d-block w-1px h-24px bg-n100"></span>
                         </div>
@@ -197,7 +197,103 @@ foreach ($result as $row)
                     <div class="swiper-slide w-fit">
                         <div class="d-flex align-items-center gap-lg-6 gap-4">
                             <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Check Out Our Trendy E-Bikes
+                                Check Out Our Latest Vintage Bikes
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Explore Our Latest Mountain Bikes
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Free shipping for orders over $899 in USA
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Returns extends over a period of 14 days
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Check Out Our Latest Vintage Bikes 
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                SPECIAL DISCOUNT
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Shipping World Wide
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Free shipping for orders over $899
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                SPECIAL DISCOUNT
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Shipping World Wide
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Expert advice
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Returns extends over a period of 14 days
+                            </span>
+                            <span class="d-block w-1px h-24px bg-n100"></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-fit">
+                        <div class="d-flex align-items-center gap-lg-6 gap-4">
+                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
+                                Check Out Our Latest Vintage Bikes
                             </span>
                             <span class="d-block w-1px h-24px bg-n100"></span>
                         </div>
@@ -229,7 +325,7 @@ foreach ($result as $row)
                     <div class="swiper-slide w-fit">
                         <div class="d-flex align-items-center gap-lg-6 gap-4">
                             <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Check Out Our Trendy E-Bikes
+                                Check Out Our Latest Vintage Bikes
                             </span>
                             <span class="d-block w-1px h-24px bg-n100"></span>
                         </div>
@@ -245,103 +341,7 @@ foreach ($result as $row)
                     <div class="swiper-slide w-fit">
                         <div class="d-flex align-items-center gap-lg-6 gap-4">
                             <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Shipping through all of Europe
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Free shipping for orders over $899
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                SPECIAL DISCOUNT
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Shipping through all of Europe
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Expert advice
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Returns extends over a period of 14 days
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Check Out Our Trendy E-Bikes
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Explore Our Latest Mountain Bikes
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Free shipping for orders over $899
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Returns extends over a period of 14 days
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Check Out Our Trendy E-Bikes
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                SPECIAL DISCOUNT
-                            </span>
-                            <span class="d-block w-1px h-24px bg-n100"></span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide w-fit">
-                        <div class="d-flex align-items-center gap-lg-6 gap-4">
-                            <span class="text-sm font-noto-sans fw-medium text-uppercase text-n100">
-                                Shipping through all of Europe
+                                Shipping World Wide
                             </span>
                             <span class="d-block w-1px h-24px bg-n100"></span>
                         </div>

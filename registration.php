@@ -96,6 +96,7 @@ if (isset($_POST['form1'])) {
                                         cust_city,
                                         cust_state,
                                         cust_zip,
+
                                         cust_b_name,
                                         cust_b_cname,
                                         cust_b_phone,
@@ -104,19 +105,22 @@ if (isset($_POST['form1'])) {
                                         cust_b_city,
                                         cust_b_state,
                                         cust_b_zip,
+
                                         cust_s_name,
                                         cust_s_cname,
                                         cust_s_phone,
-                                        
                                         cust_s_address,
                                         cust_s_city,
-                                        cust_s_state,cust_s_country,
+                                        cust_s_state,
+                                        cust_s_country,
                                         cust_s_zip,
+
                                         cust_password,
                                         cust_token,
                                         cust_datetime,
                                         cust_timestamp,
                                         cust_status
+
                                     ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $statement->execute(array(
                                         strip_tags($_POST['cust_name']),
@@ -128,30 +132,34 @@ if (isset($_POST['form1'])) {
                                         strip_tags($_POST['cust_city']),
                                         strip_tags($_POST['cust_state']),
                                         strip_tags($_POST['cust_zip']),
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
+
+                                        strip_tags($_POST['cust_name']),
+                                        strip_tags($_POST['cust_cname']),
+                                        strip_tags($_POST['cust_phone']),
+                                        strip_tags($_POST['cust_country']),
+                                        strip_tags($_POST['cust_address']),
+                                        strip_tags($_POST['cust_city']),
+                                        strip_tags($_POST['cust_state']),
+                                        strip_tags($_POST['cust_zip']),
+
+                                        strip_tags($_POST['cust_name']),
+                                        strip_tags($_POST['cust_cname']),
+                                        strip_tags($_POST['cust_phone']),
+                                        strip_tags($_POST['cust_address']),
+                                        strip_tags($_POST['cust_city']),
+                                        strip_tags($_POST['cust_state']),
+                                        strip_tags($_POST['cust_country']),
+                                        strip_tags($_POST['cust_zip']),
+                                        
                                         md5($_POST['cust_password']),
                                         $token,
                                         $cust_datetime,
                                         $cust_timestamp,
-                                        0
+                                        1
                                     ));
 
         // Send email for confirmation of the account
+        /*
         $to = $_POST['cust_email'];
 
         $subject = LANG_VALUE_150;
@@ -168,7 +176,44 @@ if (isset($_POST['form1'])) {
                    "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         // Sending Email
-        mail($to, $subject, $message, $headers);
+        //mail($to, $subject, $message, $headers);
+*/
+
+        
+        //log the user in
+        $statement = $pdo->prepare("SELECT * FROM tbl_customer WHERE cust_email=?");
+        $statement->execute(array(strip_tags($_POST['cust_email'])));
+        $total = $statement->rowCount();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach($result as $row) {
+            $cust_status = $row['cust_status'];
+            $row_password = $row['cust_password'];
+        }
+
+        if($total==0) {
+            $error_message .= LANG_VALUE_133.'<br>';
+        } else {
+            //using MD5 form
+            if( $row_password != md5($_POST['cust_password']) ) {
+                $error_message .= LANG_VALUE_139.'<br>';
+            } else {
+                if($cust_status == 0) {
+                    $error_message .= LANG_VALUE_148.'<br>';
+                } else {
+                    $_SESSION['customer'] = $row;
+                    if (isset($_SESSION['next_page'])) {
+                        // Redirect to the next page stored in session
+                        header("Location: ".BASE_URL . $_SESSION['next_page']);
+                        exit;
+                    } else {
+                        // If not set, redirect to dashboard
+                        header("Location:".BASE_URL ."dashboard.php");
+                        exit;
+                    }
+                }
+            }
+            
+        }
 
         unset($_POST['cust_name']);
         unset($_POST['cust_cname']);
@@ -180,6 +225,7 @@ if (isset($_POST['form1'])) {
         unset($_POST['cust_zip']);
 
         $success_message = LANG_VALUE_152;
+
     }
 }
 ?>
@@ -274,10 +320,12 @@ if (isset($_POST['form1'])) {
                                     <label for=""></label>
                                     <input type="submit" class="btn btn-danger" value="<?php echo LANG_VALUE_15; ?>" name="form1">
                                 </div>
+                                <!--
                                 <div class="col-md-6 form-group">
                                     <label for=""></label>
                                     <a href="seller-register.php" class="btn btn-link">Register as a Seller instead</a>
                                 </div>
+                                -->
                             </div>
                         </div>
                     </form>

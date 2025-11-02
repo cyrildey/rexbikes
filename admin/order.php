@@ -51,7 +51,8 @@ Card CVV: '.$row['card_cvv'].'<br>
 Card Month: '.$row['card_month'].'<br>
 Card Year: '.$row['card_year'].'<br>
         		';
-        	elseif($row['payment_method'] == 'Bank Deposit'):
+        	//elseif($row['payment_method'] == 'Bank Deposit'):
+                else:
 				$payment_details = '
 Transaction Details: <br>'.$row['bank_transaction_info'];
         	endif;
@@ -236,7 +237,8 @@ if($success_message != '') {
                         		<b>Card CVV:</b> <?php echo $row['card_cvv']; ?><br>
                         		<b>Expire Month:</b> <?php echo $row['card_month']; ?><br>
                         		<b>Expire Year:</b> <?php echo $row['card_year']; ?><br>
-                        	<?php elseif($row['payment_method'] == 'Bank Deposit'): ?>
+                        	<?php //elseif($row['payment_method'] == 'Bank Deposit'):
+                                    else: ?>
                         		<b>Payment Method:</b> <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
                         		<b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
 								<b>Date:</b> <?php echo $row['payment_date']; ?><br>

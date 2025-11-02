@@ -257,7 +257,7 @@ foreach ($result as $row) {
 
 
 <header class="header1">
-  <div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0;"><i>REXBIKES</i></a></div>
+  <div class="logo"><img src="assets/img/Eclipse.png" height="50px"width="50px"><a href="index.php" style="color: #2b6cb0;"><i></i></a></div>
 	<div class="nav">
 		<div class="container">
 			<div class="row">
@@ -335,40 +335,49 @@ foreach ($result as $row) {
 			</div>
 		</form>
 	</div>
-	<div class="d-flex align-items-center gap-3 flex-wrap">
-			<?php
-			// Count cart items
-			$cart_count = 0;
-			if(isset($_SESSION['cart_p_id'])) {
-				$cart_count = count($_SESSION['cart_p_id']);
-			}
-			// ?>
-			<?php
-				if(isset($_SESSION['customer'])) {
-					?>
-					<li style="list-style: none;"><i class="fas fa-user" alt="User" style="font-size: 20px;"><?php echo $_SESSION['customer']['cust_name']; ?></i></li>
-					<li style="list-style: none;"><a href="dashboard.php"><i class="fa fa-home" alt="dashboard" style="font-size: 20px;"></i></a></li>
-					<?php
-				} else {
-					?>
-					<a href="admin/login.php"><i class="fas fa-user" style="font-size: 20px;" ></i></a>
-					<form class="search-box" role="search" action="search-result.php" method="get" style="display:flex; align-items: center; align-content: center;">
-						<button type="submit" class="btn bg-secondary bg-kelshair2">Post</button>
-					</form>
-					<?php	
-				}
-			?>
-	</div>
 	-->
+	<div class="d-flex align-items-center gap-3 flex-wrap">
+		<?php
+		// Count cart items
+		$cart_count = 0;
+		if(isset($_SESSION['cart_p_id'])) {
+			$cart_count = count($_SESSION['cart_p_id']);
+		}
+		?>
+		<a href="cart.php" style="position:relative; display:inline-block;">
+			<img src="assets/images/shopping-bag.png" alt="Cart" style="height:24px;">
+			<?php if($cart_count > 0): ?>
+			<span style="position:absolute; top:-8px; right:-8px; background:#dc3545; color:#fff; border-radius:50%; padding:2px 6px; font-size:12px; min-width:18px; text-align:center;"> <?php echo $cart_count; ?> </span>
+			<?php endif; ?>
+		</a>
+		
+	</div>
 </header>
 
 <div class="header2">
     <div class="header-responce" style="display: flex; align-items: center; gap: 10px; padding: 10px; color: var(--white); background-color: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);">
 		<a href="index.php"><img src="assets/uploads/logo.png" alt="Logo" style=" height: 28px;"></a>
+		<h3 style="color: #232f3e; font-weight: bold;">REXBIKES</h3>
 		<form class="search-box" role="search" action="search-result.php" method="get" style="flex: 1; align-items: center; align-content: center;">
 			<?php $csrf->echoInputField(); ?>
 			<input type="text" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text" style="width:100%; padding: 8px 6px; border: none; border-radius: 20px; font-size: 14px; outline: none; background: var(--light-green); color: var(--dark-gray);">
 		</form>
+		<div class="d-flex align-items-center gap-3 flex-wrap">
+		<?php
+		// Count cart items
+		$cart_count = 0;
+		if(isset($_SESSION['cart_p_id'])) {
+			$cart_count = count($_SESSION['cart_p_id']);
+		}
+		?>
+		<a href="cart.php" style="position:relative; display:inline-block;">
+			<img src="assets/images/shopping-bag.png" alt="Cart" style="height:24px;">
+			<?php if($cart_count > 0): ?>
+			<span style="position:absolute; top:-8px; right:-8px; background:#dc3545; color:#fff; border-radius:50%; padding:2px 6px; font-size:12px; min-width:18px; text-align:center;"> <?php echo $cart_count; ?> </span>
+			<?php endif; ?>
+		</a>
+		
+	</div>
 		<!--
 		<div class="search-area" style="display:flex;">
             <form class="" role="search" action="#" method="post" id="langForm2" name="langForm2" style="align-items: center; align-content: center; align-self: center;"">

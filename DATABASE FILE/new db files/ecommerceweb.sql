@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_color` (
   `color_id` int(11) NOT NULL,
   `color_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_color`
@@ -363,7 +363,7 @@ CREATE TABLE `tbl_customer` (
   `cust_datetime` varchar(100) NOT NULL,
   `cust_timestamp` varchar(100) NOT NULL,
   `cust_status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_customer`
@@ -393,7 +393,7 @@ CREATE TABLE `tbl_customer_message` (
   `message` text NOT NULL,
   `order_detail` text NOT NULL,
   `cust_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -405,7 +405,7 @@ CREATE TABLE `tbl_end_category` (
   `ecat_id` int(11) NOT NULL,
   `ecat_name` varchar(255) NOT NULL,
   `mcat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_end_category`
@@ -501,7 +501,7 @@ CREATE TABLE `tbl_faq` (
   `faq_id` int(11) NOT NULL,
   `faq_title` varchar(255) NOT NULL,
   `faq_content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_faq`
@@ -525,14 +525,14 @@ CREATE TABLE `tbl_language` (
   `lang_name` varchar(255) NOT NULL,
   `lang_value` text NOT NULL,
   `lang_fr` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_language`
 --
 
 INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`, `lang_fr`) VALUES
-(1, 'Currency', 'XAF', 'XAF'),
+(1, 'Currency', '$', '$'),
 (2, 'Search Product', 'Search Product', 'Rechercher un produit'),
 (3, 'Search', 'Search', 'Rechercher'),
 (4, 'Submit', 'Submit', 'Soumettre'),
@@ -706,7 +706,7 @@ CREATE TABLE `tbl_mid_category` (
   `mcat_id` int(11) NOT NULL,
   `mcat_name` varchar(255) NOT NULL,
   `tcat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_mid_category`
@@ -744,7 +744,7 @@ CREATE TABLE `tbl_order` (
   `quantity` varchar(50) NOT NULL,
   `unit_price` varchar(50) NOT NULL,
   `payment_id` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_order`
@@ -795,7 +795,7 @@ CREATE TABLE `tbl_page` (
   `vgallery_meta_title` varchar(255) NOT NULL,
   `vgallery_meta_keyword` text NOT NULL,
   `vgallery_meta_description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_page`
@@ -827,7 +827,7 @@ CREATE TABLE `tbl_payment` (
   `payment_status` varchar(25) NOT NULL,
   `shipping_status` varchar(20) NOT NULL,
   `payment_id` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_payment`
@@ -849,7 +849,7 @@ CREATE TABLE `tbl_photo` (
   `id` int(11) NOT NULL,
   `caption` varchar(255) NOT NULL,
   `photo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_photo`
@@ -881,7 +881,7 @@ CREATE TABLE `tbl_post` (
   `meta_title` varchar(255) NOT NULL,
   `meta_keyword` text NOT NULL,
   `meta_description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_post`
@@ -922,7 +922,7 @@ CREATE TABLE `tbl_product` (
   `p_is_featured` int(1) NOT NULL,
   `p_is_active` int(1) NOT NULL,
   `ecat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_product`
@@ -961,7 +961,7 @@ CREATE TABLE `tbl_product_color` (
   `id` int(11) NOT NULL,
   `color_id` int(11) NOT NULL,
   `p_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_product_color`
@@ -1065,7 +1065,7 @@ CREATE TABLE `tbl_product_photo` (
   `pp_id` int(11) NOT NULL,
   `photo` varchar(255) NOT NULL,
   `p_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_product_photo`
@@ -1110,7 +1110,7 @@ CREATE TABLE `tbl_product_size` (
   `id` int(11) NOT NULL,
   `size_id` int(11) NOT NULL,
   `p_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_product_size`
@@ -1319,7 +1319,7 @@ CREATE TABLE `tbl_rating` (
   `cust_id` int(11) NOT NULL,
   `comment` text NOT NULL,
   `rating` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -1332,7 +1332,7 @@ CREATE TABLE `tbl_service` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `photo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_service`
@@ -1443,7 +1443,7 @@ CREATE TABLE `tbl_shipping_cost` (
   `shipping_cost_id` int(11) NOT NULL,
   `country_id` int(11) NOT NULL,
   `amount` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_shipping_cost`
@@ -1464,7 +1464,7 @@ INSERT INTO `tbl_shipping_cost` (`shipping_cost_id`, `country_id`, `amount`) VAL
 CREATE TABLE `tbl_shipping_cost_all` (
   `sca_id` int(11) NOT NULL,
   `amount` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_shipping_cost_all`
@@ -1482,7 +1482,7 @@ INSERT INTO `tbl_shipping_cost_all` (`sca_id`, `amount`) VALUES
 CREATE TABLE `tbl_size` (
   `size_id` int(11) NOT NULL,
   `size_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_size`
@@ -1551,7 +1551,7 @@ CREATE TABLE `tbl_slider` (
   `button_text` varchar(255) NOT NULL,
   `button_url` varchar(255) NOT NULL,
   `position` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_slider`
@@ -1573,7 +1573,7 @@ CREATE TABLE `tbl_social` (
   `social_name` varchar(30) NOT NULL,
   `social_url` varchar(255) NOT NULL,
   `social_icon` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_social`
@@ -1610,7 +1610,7 @@ CREATE TABLE `tbl_subscriber` (
   `subs_date_time` varchar(100) NOT NULL,
   `subs_hash` varchar(255) NOT NULL,
   `subs_active` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_subscriber`
@@ -1634,7 +1634,7 @@ CREATE TABLE `tbl_top_category` (
   `tcat_id` int(11) NOT NULL,
   `tcat_name` varchar(255) NOT NULL,
   `show_on_menu` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_top_category`
@@ -1662,7 +1662,7 @@ CREATE TABLE `tbl_user` (
   `photo` varchar(255) NOT NULL,
   `role` varchar(30) NOT NULL,
   `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_user`
@@ -1682,14 +1682,14 @@ CREATE TABLE `tbl_video` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `iframe_code` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ;
 
 --
 -- Dumping data for table `tbl_video`
 --
 
 INSERT INTO `tbl_video` (`id`, `title`, `iframe_code`) VALUES
-(1, 'Video 1', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/L3XAFSMdVWU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>'),
+(1, 'Video 1', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/L3$SMdVWU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>'),
 (2, 'Video 2', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/sinQ06YzbJI\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>'),
 (4, 'Video 3', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ViZNgU-Yt-Y\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>');
 

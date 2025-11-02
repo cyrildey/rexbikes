@@ -59,8 +59,9 @@ if (isset($_POST['form1'])) {
                             strip_tags($_POST['cust_s_state']),
                             strip_tags($_POST['cust_s_zip']),
                             $_SESSION['customer']['cust_id']
-                        ));  
+                ));  
    
+                
     $success_message = LANG_VALUE_122;
 
     $_SESSION['customer']['cust_b_name'] = strip_tags($_POST['cust_b_name']);

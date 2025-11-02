@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+print_r($_POST);
 include("../../admin/inc/config.php");
 include("../../admin/inc/functions.php");
 // Getting all language variables into array as global variable
@@ -50,7 +51,7 @@ if( !isset($_REQUEST['msg']) ) {
 	                            '', 
 	                            '',
 	                            $_POST['transaction_info'],
-	                            'Bank Deposit',
+	                            $_POST['payment_method'],
 	                            'Pending',
 	                            'Pending',
 	                            $payment_id

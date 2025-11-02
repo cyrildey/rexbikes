@@ -567,7 +567,7 @@ CREATE TABLE `tbl_language` (
 --
 -- Translate lang_fr column to French for each entry below
 INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`, `lang_fr`) VALUES
-(1, 'Currency', 'XAF', 'Devise'),
+(1, 'Currency', '$', 'Devise'),
 (2, 'Search Product', 'Search Product', 'Rechercher un produit'),
 (3, 'Search', 'Search', 'Rechercher'),
 (4, 'Submit', 'Submit', 'Soumettre'),
@@ -1724,7 +1724,7 @@ CREATE TABLE `tbl_video` (
 --
 
 INSERT INTO `tbl_video` (`id`, `title`, `iframe_code`) VALUES
-(1, 'Video 1', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/L3XAFSMdVWU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>'),
+(1, 'Video 1', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/L3$SMdVWU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>'),
 (2, 'Video 2', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/sinQ06YzbJI\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>'),
 (4, 'Video 3', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ViZNgU-Yt-Y\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>');
 

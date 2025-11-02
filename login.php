@@ -39,7 +39,15 @@ if(isset($_POST['form1'])) {
                     $error_message .= LANG_VALUE_148.'<br>';
                 } else {
                     $_SESSION['customer'] = $row;
-                    header("location: ".BASE_URL."dashboard.php");
+                    if (isset($_SESSION['next_page'])) {
+                        // Redirect to the next page stored in session
+                        header("Location: ".BASE_URL . $_SESSION['next_page']);
+                        exit;
+                    } else {
+                        // If not set, redirect to dashboard
+                        header("Location:".BASE_URL ."dashboard.php");
+                        exit;
+                    }
                 }
             }
             
@@ -86,6 +94,9 @@ if(isset($_POST['form1'])) {
                                     <label for=""></label>
                                     <input type="submit" class="btn btn-success" value="<?php echo LANG_VALUE_4; ?>" name="form1">
                                 </div>
+                                <p>
+                                    Don't yet have an account? <a href="registration.php" style="color:green;">Register here</a>
+                                </p>
                                 <a href="forget-password.php" style="color:#e4144d;"><?php echo LANG_VALUE_97; ?>?</a>
                             </div>
                         </div>                        

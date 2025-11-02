@@ -52,13 +52,14 @@ if(isset($_POST['form1'])) {
 
     if($valid == 1) {
 
-    	$statement = $pdo->prepare("SHOW TABLE STATUS LIKE 'tbl_product'");
+    	//$statement = $pdo->prepare("SHOW TABLE STATUS LIKE 'tbl_product'");
+        $statement = $pdo->prepare("SELECT MAX(p_id) + 1 AS NextID FROM tbl_product");
 		$statement->execute();
 		$result = $statement->fetchAll();
 		foreach($result as $row) {
-			$ai_id=$row[10];
+			$ai_id=$row[0];
 		}
-
+		//print_r($result);
     	if( isset($_FILES['photo']["name"]) && isset($_FILES['photo']["tmp_name"]) )
         {
         	$photo = array();
@@ -76,6 +77,7 @@ if(isset($_POST['form1'])) {
 				$next_id1=$row[10];
 			}
 			$z = $next_id1;
+          	
 
             $m=0;
             for($i=0;$i<count($photo);$i++)
@@ -244,13 +246,13 @@ if(isset($_POST['form1'])) {
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Old Price <br><span style="font-size:10px;font-weight:normal;">(In XAF)</span></label>
+							<label for="" class="col-sm-3 control-label">Old Price <br><span style="font-size:10px;font-weight:normal;">(In $)</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_old_price" class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Current Price <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In XAF)</span></label>
+							<label for="" class="col-sm-3 control-label">Current Price <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In $)</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_current_price" class="form-control">
 							</div>
