@@ -30,6 +30,10 @@ foreach ($result as $row)
 
 
 ?>
+<head>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <script defer src="assets/js/main.js"></script><link href="assets/css/style.css" rel="stylesheet">
+</head>
 
 <?php if(1 == 1): ?>
 
@@ -41,7 +45,9 @@ foreach ($result as $row)
 </div>
 
 <?php endif; ?>
-
+                <?php require_once('sidebar-category.php'); ?>
+<div class="col-md-3">
+</div>
 <?php if($home_featured_product_on_off == 1): ?>
 <div class="product pt_70 pb_70">
     <div class="container">
@@ -427,5 +433,70 @@ foreach ($result as $row)
     </div>
 </div>
 <?php endif; ?>
+
+ <section class="product-section px-xl-20 px-lg-10 px-sm-7 pt-120 pb-120 bg-n20">
+            <div class="container-fluid">
+                <div class="row g-6 justify-content-between align-items-end mb-lg-15 mb-md-10 mb-8">
+                    <div class="col-lg-6 col-md-9">
+                        <h2 class="text-animation-word display-four text-n100 text-uppercase">Our Top Bikes</h2>
+                    </div>
+                    <div class="col-auto">
+                        <a href="allproduct.php" class="outline-btn radius-pill text-n100 fw-medium box-style box-secondary2">More Bikes</a>
+                    </div>
+                </div>
+                <div class="row g-0">
+                <?php
+                    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE  p_is_active=? ORDER BY p_id DESC LIMIT ".$total_latest_product_home);
+                    $statement->execute(array(1));
+                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+                    foreach ($result as $row) {
+                ?>
+                    <div class="col-lg-4 col-xs-6">
+                        <!-- product item -->
+                        <div
+                            class="product-card2 position-relative p-xl-10 p-lg-8 p-6 bg-n0 border border-n100-5 box-style box-n20 card-tilt animate-box">
+                            <div
+                                class="product-type py-lg-3 py-2 ps-lg-4 ps-2 pe-lg-6 pe-4 bg-secondary2 position-absolute top-0 start-0 parallelogram-path z-2">
+                                <span class="text-sm fw-medium text-n0">Top</span>
+                            </div>
+                            <div class="product-thumb-wrapper position-relative">
+                                <button
+                                    class="single-wishlist-btn text-secondary2 text-xl icon-52px bg-n0 position-absolute top-0 right-0 z-3 tooltip-btn tooltip-left"
+                                    data-tooltip="Add to wishlist">
+                                    <i class="ph ph-heart"></i>
+                                </button>
+                                <div class="product-thumb reveal-left hover-cursor" data-hover-text="View Product">
+                                    <a href="product.php?id=<?php echo $row['p_id']; ?>" class="product-thumb-link d-block">
+                                       <div class="product-image">
+                                            <img src="assets/uploads/<?php echo $row['p_featured_photo']; ?>" alt="<?php echo $row['p_name']; ?>">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <span class="d-block h-1px w-100 bg-n100-1 mb-lg-6 mb-4 mt-lg-10 mt-6"></span>
+                            <div class="product-info-wrapper">
+                                <div class="mb-xxl-7 mb-md-5 mb-3">
+                                    <a href="product.php?id=<?php echo $row['p_id']; ?>">
+                                        <h4 class="text-animation-line text-n100 mb-2 hover-text-secondary2"><?php echo $row['p_name']; ?>
+                                        </h4>
+                                    </a>
+                                    <span class="text-sm fw-normal text-n50"><?php echo $row['p_short_description']; ?></span>
+                                </div>
+                                <div class="d-between flex-wrap gap-4">
+                                    <div class="d-grid">
+                                        <span class="text-sm fw-normal text-n50 text-decoration-line-through">$<?php echo $row['p_old_price']; ?>USD</span>
+                                        <span class="text-xl fw-semibold text-secondary2">$ <?php echo $row['p_current_price']; ?> USD</span>
+                                    </div>
+                                    <a href="product.php?id=<?php echo $row['p_id']; ?>" class="outline-btn text-n100 fw-medium box-style box-secondary2">VIEW PRODUCT </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php }
+              ?>
+                </div>
+            </div>
+        </section>
 
 <?php require_once('footer.php'); ?>
