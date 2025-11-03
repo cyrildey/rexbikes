@@ -377,6 +377,12 @@ if(!isset($_SESSION['cart_p_id'])) {
                                         </div>
                                     </div>
 
+                                    <p style="font-size:16px; color:#333; background-color:#f9f9f9; padding:15px; border-radius:8px; border:1px solid #ddd; max-width:500px;">
+                                    Having trouble with your payment? Don't worry! You can <strong>contact us via email</strong> at 
+                                    <a href="mailto:rexbmxbikecollection@gmail.com" style="color:#007BFF; text-decoration:none;">rexbmxbikecollection@gmail.com</a> 
+                                    or give us a call at <strong><a href="tel:+16502395123" style="color:#007BFF; text-decoration:none;">+1 (650) 239-5123</a></strong> for assistance. We're here to help!
+                                    </p>
+
 	                                <div class="col-md-12 form-group">
                                         <select name="payment_method" id="advFieldsStatus" style="display: none;">
                                             <option value=""></option>

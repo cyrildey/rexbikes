@@ -14,8 +14,48 @@ foreach ($result as $row)
     $newsletter_on_off = $row['newsletter_on_off'];
     $before_body = $row['before_body'];
 }
-?>
 
+// ====== Fetch Socials ======
+$statement1 = $pdo->prepare("SELECT social_name, social_url, social_icon FROM tbl_social  WHERE social_url <> '' ORDER BY social_id ASC");
+$statement1->execute();
+$result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+?>
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+integrity="sha512-+bZqSmEeM2E5c2n1JtErTx6C40m3vJm9H0r9E2NuLgMQC0bcOSi9suThEn6KCOhN64fLsJ0b9JCfT3Hk2RFz5Q==" 
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  .footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+}
+
+.footer-column ul li i {
+  margin-right: 8px;
+  font-size: 14px;
+  min-width: 16px;
+}
+
+.footer-column a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+</style>
 
 <?php if($newsletter_on_off == 1): ?>
 <footer id="footer1" style="display:none;">
@@ -26,27 +66,54 @@ foreach ($result as $row)
       
     </div>
     <div class="footer-column">
+      <h3>Contact Us</h3>
+      <ul>
+        <li>
+          <i class="fa-solid fa-location-dot"></i> 
+          2080 S 1500 E, Vernal, UT 84078, United States
+        </li>
+
+        <li>
+          <i class="fa-solid fa-location-dot"></i> 
+          275 Chestnut Grove Road, Dillsburg, PA 17019, United States
+        </li>
+
+        <li>
+          <i class="fa-solid fa-phone"></i> 
+          <a href="tel:+16502395123">+1 (650) 239-5123</a>
+        </li>
+
+        <li>
+          <i class="fa-solid fa-envelope"></i> 
+          <a href="mailto:rexbmxbikecollection@gmail.com">rexbmxbikecollection@gmail.com</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-column">
       <h3>Quick Links</h3>
       <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="allproduct.php">shop</a></li>
         <li><a href="product-category.php?id=1&type=top-category">Categories</a></li>
-        <li><a href="#">How It Works</a></li>
         <li><a href="about.php">About Us</a></li>
       </ul>
     </div>
+    
+
     <div class="footer-column">
-      <h3>Help & Support</h3>
-      <!--
-      <ul>
-        <li><a href="faq.php">FAQ</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="contact.php">Contact Support</a></li>
-        <li><a href="#">Become a Provider</a></li>
-      </ul>
-      -->
+    <h3>Follow Us</h3>
+        <ul>
+            <?php foreach($result1 as $row): ?>
+                <li>
+                    <a href="<?php echo $row['social_url']; ?>" target="_blank">
+                        <i class="fa-brands <?php echo $row['social_icon']; ?>"></i> 
+                        <?php echo $row['social_name']; ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
+
   </div>
   <div class="copyright">
     <?php echo $footer_copyright; ?>

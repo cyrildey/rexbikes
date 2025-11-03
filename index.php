@@ -77,8 +77,7 @@ foreach ($result as $row)
                                     </span>
                                 </a>
                                 <a href="allproduct.php"
-                                    class="text-decoration-underline fw-medium hover-text-secondary2">Learn
-                                    More</a>
+                                    class="text-decoration-underline fw-medium hover-text-secondary2"></a>
                             </div>
 
                             <!-- hero swiper -->

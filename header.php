@@ -254,6 +254,61 @@ foreach ($result as $row) {
 </div>-->
 
 <!-- top bar -->
+<style>
+	.top-contact-bar {
+  width: 100%;
+  background: #121314ff;
+  color: #ffffff;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.top-contact-bar i {
+  margin-right: 6px;
+}
+
+.top-contact-bar .contact-left span {
+  margin-right: 5px;
+}
+
+.top-contact-bar .contact-right a {
+  color: #ffffff;
+  margin-left: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.top-contact-bar .contact-right a:hover {
+  color: #ffe600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-contact-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+  .contact-right{
+	display: none;
+  }
+}
+
+</style>
+<div class="top-contact-bar">
+  <div class="contact-left">
+    <span><i class="fa-solid fa-phone"></i> +1 (650) 239-5123</span>
+    <span><i class="fa-solid fa-envelope"></i> rexbmxbikecollection@gmail.com</span>
+  </div>
+  <div class="contact-right">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+  </div>
+</div>
 
 
 <header class="header1">
