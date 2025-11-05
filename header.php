@@ -305,7 +305,6 @@ foreach ($result as $row) {
   </div>
   <div class="contact-right">
     <a href="https://www.facebook.com/share/17g5mzjCSs/"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="+1 650-239-5123"><i class="fa-brands fa-whatsapp"></i></a>
     <a href="https://www.tiktok.com/@rex.bmx.bike.coll?_r=1&_t=ZM-910TpBW9nZr"><i class="fa-brands fa-tiktok"></i></a>
   </div>
 </div>

@@ -68,14 +68,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="footer-column">
       <h3>Contact Us</h3>
       <ul>
+        
         <li>
           <i class="fa-solid fa-location-dot"></i> 
-          2080 S 1500 E, Vernal, UT 84078, United States
-        </li>
-
-        <li>
-          <i class="fa-solid fa-location-dot"></i> 
-          275 Chestnut Grove Road, Dillsburg, PA 17019, United States
+          101 Duval Street, Key West, FL 33040
         </li>
 
         <li>
@@ -93,12 +89,14 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
       <h3>Quick Links</h3>
       <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="allproduct.php">shop</a></li>
-        <li><a href="product-category.php?id=1&type=top-category">Categories</a></li>
         <li><a href="about.php">About Us</a></li>
+        <li><a href="privacy-policy.php">Privacy Policy</a></li>
+        <li><a href="shipping-policy.php">Shipping Policy</a></li>
+        <li><a href="terms-of-service.php">Terms of Service</a></li>
+        <li><a href="return-policy.php">Return Policy</a></li>
       </ul>
     </div>
-    
+
 
     <div class="footer-column">
     <h3>Follow Us</h3>
