@@ -480,7 +480,7 @@ foreach ($result as $row)
                                         <h4 class="text-animation-line text-n100 mb-2 hover-text-secondary2"><?php echo $row['p_name']; ?>
                                         </h4>
                                     </a>
-                                    <span class="text-sm fw-normal text-n50"><?php if($row['p_old_price']!='') echo $row['p_old_price']." USD"; ?></span>
+                                    <span class="text-sm fw-normal text-n50"> </span>
                                 </div>
                                 <div class="d-between flex-wrap gap-4">
                                     <div class="d-grid">
