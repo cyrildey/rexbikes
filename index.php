@@ -402,7 +402,7 @@ foreach ($result as $row)
                                 </div>
                                 <div class="d-between flex-wrap gap-4">
                                     <div class="d-grid">
-                                        <span class="text-sm fw-normal text-n50 text-decoration-line-through">$<?php if($row['p_old_price']!='') echo $row['p_old_price']." USD"; ?></span>   
+                                        <span class="text-sm fw-normal text-n50 text-decoration-line-through"><?php if($row['p_old_price']!='') echo '$'. $row['p_old_price']." USD"; ?></span>      
                                         <span class="text-xl fw-semibold text-secondary2">$ <?php echo $row['p_current_price']; ?> USD</span>
                                     </div>
                                     <a href="product.php?id=<?php echo $row['p_id']; ?>" class="outline-btn text-n100 fw-medium box-style box-secondary2">VIEW PRODUCT </a>
@@ -517,7 +517,7 @@ foreach ($result as $row)
                                 </div>
                                 <div class="d-between flex-wrap gap-4">
                                     <div class="d-grid">
-                                        <span class="text-sm fw-normal text-n50 text-decoration-line-through">$<?php if($row['p_old_price']!='') echo $row['p_old_price']." USD"; ?></span>
+                                        <span class="text-sm fw-normal text-n50 text-decoration-line-through"><?php if($row['p_old_price']!='') echo '$'. $row['p_old_price']." USD"; ?></span>   
                                         <span class="text-xl fw-semibold text-secondary2">$ <?php echo $row['p_current_price']; ?> USD</span>
                                     </div>
                                     <a href="product.php?id=<?php echo $row['p_id']; ?>" class="outline-btn text-n100 fw-medium box-style box-secondary2">VIEW PRODUCT </a>
@@ -1281,7 +1281,7 @@ foreach ($result as $row)
                                 </div>
                                 <div class="d-between flex-wrap gap-4">
                                     <div class="d-grid">
-                                        <span class="text-sm fw-normal text-n50 text-decoration-line-through">$<?php if($row['p_old_price']!='') echo $row['p_old_price']." USD"; ?></span>   
+                                        <span class="text-sm fw-normal text-n50 text-decoration-line-through"><?php if($row['p_old_price']!='') echo '$'. $row['p_old_price']." USD"; ?></span>      
                                         <span class="text-xl fw-semibold text-secondary2">$ <?php echo $row['p_current_price']; ?> USD</span>
                                     </div>
                                     <a href="product.php?id=<?php echo $row['p_id']; ?>" class="outline-btn text-n100 fw-medium box-style box-secondary2">VIEW PRODUCT </a>
@@ -1346,7 +1346,7 @@ foreach ($result as $row)
                             </div>
                             <div class="d-between flex-wrap gap-4">
                                 <div class="d-grid">
-                                    <span class="text-sm fw-normal text-n50 text-decoration-line-through">$<?php if($row['p_old_price']!='') echo $row['p_old_price']." USD"; ?></span>   
+                                    <span class="text-sm fw-normal text-n50 text-decoration-line-through"><?php if($row['p_old_price']!='') echo '$'. $row['p_old_price']." USD"; ?></span>      
                                     <span class="text-xl fw-semibold text-secondary2">$ <?php echo $row['p_current_price']; ?> USD</span>
                                 </div>
                                 <a href="product.php?id=<?php echo $row['p_id']; ?>" class="outline-btn text-n100 fw-medium box-style box-secondary2">VIEW PRODUCT </a>
